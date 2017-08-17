@@ -1,0 +1,563 @@
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""" AUTOCMD """"""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+if has('autocmd')
+
+  augroup general_buffer
+    au!
+    au BufReadPost setlocal nobomb
+    au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+    " au BufEnter * if bufname("") !~ "^\[A-Za-z0-9\]*://" | lcd %:p:h | endif
+  augroup END
+
+  augroup func_listchars
+    au!
+    au FileType c,cpp,clj,cljs,lisp,{c,le,sc}ss,stylus,go,{ht,x}ml,jade,java,{java,type}script,json,php,python,ruby,vim,yaml
+          \ setlocal list
+  augroup END
+
+  augroup func_whitespace
+    au!
+    au FileType c,cpp,clj,cljs,lisp,{c,le,sc}ss,stylus,go,{ht,x}ml,j2,jade,java,{java,type}script,json,php,python,ruby,vim,yaml
+          \ au BufWritePre <buffer> call StripTrailingWhitespace()
+  augroup END
+
+  augroup func_omnicompletion
+    au!
+    au FileType {c,le,sc}ss,stylus setlocal omnifunc=csscomplete#CompleteCSS
+    au FileType html setlocal omnifunc=htmlcomplete#CompleteTags
+    au FileType {java,type}script setlocal omnifunc=javascriptcomplete#CompleteJS
+    au FileType python setlocal omnifunc=pythoncomplete#Complete
+    au FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+  augroup END
+
+  augroup func_resize
+    au!
+    au VimResized * :wincmd =
+  augroup END
+
+  augroup type_c
+    au!
+    au FileType c,cpp setlocal et ts=4 sts=4 sw=4
+    au FileType c,cpp au BufWritePre <buffer> call StripTrailingWhitespace()
+  augroup END
+
+  augroup type_css
+    au!
+    au FileType {c,le,sc}ss setlocal et ts=2 sts=2 sw=2
+    au FileType {c,le,sc}ss,stylus setlocal foldmethod=marker foldmarker={,}
+    au FileType {c,le,sc}ss,stylus au BufWritePre <buffer> call StripTrailingWhitespace()
+    au FileType scss setlocal iskeyword+=-
+  augroup END
+
+  augroup type_html
+    au!
+    au BufRead,BufNewFile *.phtml setlocal filetype=html.php
+    au BufRead,BufNewFile *.jsp setlocal filetype=html.jsp
+    au FileType html setlocal et ts=4 sts=4 sw=4
+    " Auto-tidy selection
+    au FileType html vnoremap <leader>x :!tidy -q -i --show-errors 0 --show-body-only 1 --wrap 0<cr><cr>
+    au FileType html au BufWritePre <buffer> call StripTrailingWhitespace()
+  augroup END
+
+  augroup type_gitcommit
+    au!
+    au FileType gitcommit call setpos('.', [0, 1, 1, 0])
+    au FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
+  augroup END
+
+  augroup type_go
+    au!
+    au FileType go setlocal et ts=4 sts=4 sw=4
+    au FileType go au BufWritePre <buffer> call StripTrailingWhitespace()
+  augroup END
+
+  augroup type_haskell
+    au!
+    au FileType haskell compiler ghc
+    au FileType haskell setlocal et ts=2 sts=2 sw=2
+    au FileType haskell setlocal omnifunc=necoghc#omnifunc
+    au FileType haskell let g:haskell_enable_quantification = 1   " to enable highlighting of `forall`
+    au FileType haskell let g:haskell_enable_recursivedo = 1      " to enable highlighting of `mdo` and `rec`
+    au FileType haskell let g:haskell_enable_arrowsyntax = 1      " to enable highlighting of `proc`
+    au FileType haskell let g:haskell_enable_pattern_synonyms = 1 " to enable highlighting of `pattern`
+    au FileType haskell let g:haskell_enable_typeroles = 1        " to enable highlighting of type roles
+    au FileType haskell let g:haskell_enable_static_pointers = 1  " to enable highlighting of `static`
+    au FileType haskell let g:haskell_backpack = 1                " to enable highlighting of backpack keywords
+    au FileType haskell au BufWritePre <buffer> call StripTrailingWhitespace()
+  augroup END
+
+  augroup type_jade
+    au!
+    au FileType jade setlocal et ts=2 sts=2 sw=2
+    au FileType jade au BufWritePre <buffer> call StripTrailingWhitespace()
+  augroup END
+
+  augroup type_java
+    au!
+    au FileType java setlocal et ts=4 sts=4 sw=4
+    au FileType java au BufWritePre <buffer> call StripTrailingWhitespace()
+  augroup END
+
+  augroup type_javascript
+    au!
+    au FileType javascript setlocal et ts=4 sts=4 sw=4
+    au FileType javascript nnoremap <leader>b Odebugger;<esc>
+    " au FileType javascript au BufEnter <buffer> call JavaScriptFold()
+    "       \| %foldo | g/\/\*\(.*\)\(\*\/\)\@<!$/foldc
+    au FileType javascript au BufWritePre <buffer> call StripTrailingWhitespace()
+    au FileType javascript au BufWritePost,BufReadPost <buffer> Neomake
+  augroup END
+
+  augroup type_jinja
+    au!
+    au BufNewFile,BufRead *.jinja{,2},*.j2 setlocal ft=jinja2
+    au FileType jinja2 setlocal et ts=4 sts=4 sw=4
+    au FileType jinja2 setlocal commentstring={#%s#}
+    au FileType jinja2 au BufWritePre <buffer> call StripTrailingWhitespace()
+  augroup END
+
+  augroup type_json
+    au!
+    au FileType json setlocal et ts=2 sts=2 sw=2
+    au FileType json setlocal equalprg=python\ -m\ json.tool
+    au FileType json au BufWritePre <buffer> call StripTrailingWhitespace()
+  augroup END
+
+  augroup type_lisp
+    au!
+    au BufRead,BufNewFile *.{clj,cljs,el} setlocal filetype=lisp
+    au FileType lisp,scheme setlocal et ts=2 sts=2 sw=2
+    au FileType lisp,scheme setlocal equalprg=scmindent
+    au FileType lisp,scheme au BufWritePre <buffer> call StripTrailingWhitespace()
+  augroup END
+
+  augroup type_make
+    au!
+    au FileType make setlocal noet ts=4 sts=4 sw=4
+    au FileType make au BufWritePre <buffer> call StripTrailingWhitespace()
+  augroup END
+
+  augroup type_mutt
+    au!
+    au BufRead,BufNewFile *mutt-* setlocal filetype=mail
+    au FileType mail setlocal tw=72
+  augroup END
+
+  augroup type_pandoc
+    au!
+    au BufRead,BufNewFile *.{ft,md,markdown} setlocal filetype=pandoc
+    au FileType pandoc setlocal et ts=4 sts=4 sw=4
+  augroup END
+
+  augroup type_php
+    au!
+    au FileType php setlocal et ts=4 sts=4 sw=4
+    au FileType php au BufWritePre <buffer> call StripTrailingWhitespace()
+  augroup END
+
+  augroup type_python
+    au!
+    " PEP8 compliance (set 1 tab = 4 chars explicitly, even if set
+    " earlier, as it is important)
+    " au FileType python setlocal et ts=4 sts=4 sw=4
+    "       \ | setlocal textwidth=78
+    "       \ | match ErrorMsg '\%>120v.\+'
+
+    " But disable autowrapping as it is super annoying
+    " au FileType python setlocal formatoptions-=t
+    au FileType python BracelessEnable +indent +highlight
+    au FileType python setlocal et ts=4 sts=4 sw=4
+    au FileType python au BufWritePost,BufReadPost <buffer> Neomake
+    au FileType python au BufWritePre <buffer> call StripTrailingWhitespace()
+  augroup END
+
+  augroup type_rst
+    au FileType rst setlocal et ts=4 sts=4 sw=4
+  augroup END
+
+  augroup type_ruby
+    au!
+    au FileType ruby setlocal et ts=2 sts=2 sw=2
+    au FileType ruby au BufWritePre <buffer> call StripTrailingWhitespace()
+  augroup END
+
+  augroup type_tmux
+    au!
+    au BufRead,BufNewFile .tmux.conf setlocal filetype=tmux.conf
+    au FileType tmux.conf setlocal et ts=2 sts=2 sw=2
+  augroup END
+
+  augroup type_typescript
+    au!
+    au FileType typescript setlocal et ts=2 sts=2 sw=2
+    au FileType typescript nnoremap <leader>b Odebugger;<esc>
+    au FileType typescript au BufWritePost,BufReadPost <buffer> Neomake
+    au FileType javascript au BufWritePre <buffer> call StripTrailingWhitespace()
+  augroup END
+
+  augroup type_vim
+    au!
+    au FileType vim setlocal et ts=2 sts=2 sw=2
+
+    " Bind <F1> to show the keyword under cursor
+    " general help can still be entered manually, with :h
+    au FileType vim noremap <buffer> <F1> <Esc>:help <C-r><C-w><CR>
+    au FileType vim noremap! <buffer> <F1> <Esc>:help <C-r><C-w><CR>
+    au FileType vim au BufWritePre <buffer> call StripTrailingWhitespace()
+  augroup END
+
+  augroup type_xml
+    au!
+    au FileType xml setlocal et ts=4 sts=4 sw=4
+    au FileType xml au BufWritePre <buffer> call StripTrailingWhitespace()
+  augroup END
+
+  augroup type_yaml
+    au!
+    au BufRead,BufNewFile *.fdoc setlocal filetype=yaml
+    au FileType yaml setlocal et ts=2 sts=2 sw=2
+    au FileType yaml au BufWritePre <buffer> call StripTrailingWhitespace()
+  augroup END
+
+  augroup bundle_pencil
+    au!
+    au FileType pandoc
+          \   call pencil#init({'textwidth': 78})
+          \ | call lexical#init()
+          \ | call litecorrect#init()
+          \ | setlocal spell spl=en_us fdl=4 noru nonu nornu
+          \ | setlocal fdo+=search
+  augroup END
+
+  augroup bundle_emmet
+    au!
+    au FileType html,{c,le,sc}ss EmmetInstall
+  augroup END
+
+  augroup bundle_goyo
+    au!
+    au User GoyoEnter nested call <SID>goyo_enter()
+    au User GoyoLeave nested call <SID>goyo_leave()
+  augroup END
+
+  augroup bundle_surround
+    au!
+    " FileType-dependent mapping of "-" (ASCII 45) as a replacement string
+    au FileType php let b:surround_45 = "<?php \r ?>"
+  augroup END
+
+endif
+
+
+function! s:goyo_enter()
+  silent !tmux set status off
+  set noshowmode
+  set noshowcmd
+  set scrolloff=999
+  let b:quitting = 0
+  let b:quitting_bang = 0
+  autocmd QuitPre <buffer> let b:quitting = 1
+  cabbrev <buffer> q! let b:quitting_bang = 1 <bar> q!
+  Limelight
+endfunction
+
+function! s:goyo_leave()
+  silent !tmux set status on
+  set showmode
+  set showcmd
+  set scrolloff=5
+  " Quit Vim if this is the only remaining buffer
+  if b:quitting && len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) == 1
+    if b:quitting_bang
+      qa!
+    else
+      qa
+    endif
+  endif
+  Limelight!
+endfunction
+
+" vim: set sw=2 ts=2 sts=2 et tw=78 nospell:"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""" AUTOCMD """"""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+if has('autocmd')
+
+  augroup general_buffer
+    au!
+    au BufReadPost setlocal nobomb
+    au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+    " au BufEnter * if bufname("") !~ "^\[A-Za-z0-9\]*://" | lcd %:p:h | endif
+  augroup END
+
+  augroup func_listchars
+    au!
+    au FileType c,cpp,clj,cljs,lisp,{c,le,sc}ss,stylus,go,{ht,x}ml,jade,java,{java,type}script,json,php,python,ruby,vim,yaml
+          \ setlocal list
+  augroup END
+
+  augroup func_whitespace
+    au!
+    au FileType c,cpp,clj,cljs,lisp,{c,le,sc}ss,stylus,go,{ht,x}ml,j2,jade,java,{java,type}script,json,php,python,ruby,vim,yaml
+          \ au BufWritePre <buffer> call StripTrailingWhitespace()
+  augroup END
+
+  augroup func_omnicompletion
+    au!
+    au FileType {c,le,sc}ss,stylus setlocal omnifunc=csscomplete#CompleteCSS
+    au FileType html setlocal omnifunc=htmlcomplete#CompleteTags
+    au FileType {java,type}script setlocal omnifunc=javascriptcomplete#CompleteJS
+    au FileType python setlocal omnifunc=pythoncomplete#Complete
+    au FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+  augroup END
+
+  augroup func_resize
+    au!
+    au VimResized * :wincmd =
+  augroup END
+
+  augroup type_c
+    au!
+    au FileType c,cpp setlocal et ts=4 sts=4 sw=4
+    au FileType c,cpp au BufWritePre <buffer> call StripTrailingWhitespace()
+  augroup END
+
+  augroup type_css
+    au!
+    au FileType {c,le,sc}ss setlocal et ts=2 sts=2 sw=2
+    au FileType {c,le,sc}ss,stylus setlocal foldmethod=marker foldmarker={,}
+    au FileType {c,le,sc}ss,stylus au BufWritePre <buffer> call StripTrailingWhitespace()
+    au FileType scss setlocal iskeyword+=-
+  augroup END
+
+  augroup type_html
+    au!
+    au BufRead,BufNewFile *.phtml setlocal filetype=html.php
+    au BufRead,BufNewFile *.jsp setlocal filetype=html.jsp
+    au FileType html setlocal et ts=4 sts=4 sw=4
+    " Auto-tidy selection
+    au FileType html vnoremap <leader>x :!tidy -q -i --show-errors 0 --show-body-only 1 --wrap 0<cr><cr>
+    au FileType html au BufWritePre <buffer> call StripTrailingWhitespace()
+  augroup END
+
+  augroup type_gitcommit
+    au!
+    au FileType gitcommit call setpos('.', [0, 1, 1, 0])
+    au FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
+  augroup END
+
+  augroup type_go
+    au!
+    au FileType go setlocal et ts=4 sts=4 sw=4
+    au FileType go au BufWritePre <buffer> call StripTrailingWhitespace()
+  augroup END
+
+  augroup type_haskell
+    au!
+    au FileType haskell compiler ghc
+    au FileType haskell setlocal et ts=2 sts=2 sw=2
+    au FileType haskell setlocal omnifunc=necoghc#omnifunc
+    au FileType haskell let g:haskell_enable_quantification = 1   " to enable highlighting of `forall`
+    au FileType haskell let g:haskell_enable_recursivedo = 1      " to enable highlighting of `mdo` and `rec`
+    au FileType haskell let g:haskell_enable_arrowsyntax = 1      " to enable highlighting of `proc`
+    au FileType haskell let g:haskell_enable_pattern_synonyms = 1 " to enable highlighting of `pattern`
+    au FileType haskell let g:haskell_enable_typeroles = 1        " to enable highlighting of type roles
+    au FileType haskell let g:haskell_enable_static_pointers = 1  " to enable highlighting of `static`
+    au FileType haskell let g:haskell_backpack = 1                " to enable highlighting of backpack keywords
+    au FileType haskell au BufWritePre <buffer> call StripTrailingWhitespace()
+  augroup END
+
+  augroup type_jade
+    au!
+    au FileType jade setlocal et ts=2 sts=2 sw=2
+    au FileType jade au BufWritePre <buffer> call StripTrailingWhitespace()
+  augroup END
+
+  augroup type_java
+    au!
+    au FileType java setlocal et ts=4 sts=4 sw=4
+    au FileType java au BufWritePre <buffer> call StripTrailingWhitespace()
+  augroup END
+
+  augroup type_javascript
+    au!
+    au FileType javascript setlocal et ts=4 sts=4 sw=4
+    au FileType javascript nnoremap <leader>b Odebugger;<esc>
+    " au FileType javascript au BufEnter <buffer> call JavaScriptFold()
+    "       \| %foldo | g/\/\*\(.*\)\(\*\/\)\@<!$/foldc
+    au FileType javascript au BufWritePre <buffer> call StripTrailingWhitespace()
+    au FileType javascript au BufWritePost,BufReadPost <buffer> Neomake
+  augroup END
+
+  augroup type_jinja
+    au!
+    au BufNewFile,BufRead *.jinja{,2},*.j2 setlocal ft=jinja2
+    au FileType jinja2 setlocal et ts=4 sts=4 sw=4
+    au FileType jinja2 setlocal commentstring={#%s#}
+    au FileType jinja2 au BufWritePre <buffer> call StripTrailingWhitespace()
+  augroup END
+
+  augroup type_json
+    au!
+    au FileType json setlocal et ts=2 sts=2 sw=2
+    au FileType json setlocal equalprg=python\ -m\ json.tool
+    au FileType json au BufWritePre <buffer> call StripTrailingWhitespace()
+  augroup END
+
+  augroup type_lisp
+    au!
+    au BufRead,BufNewFile *.{clj,cljs,el} setlocal filetype=lisp
+    au FileType lisp,scheme setlocal et ts=2 sts=2 sw=2
+    au FileType lisp,scheme setlocal equalprg=scmindent
+    au FileType lisp,scheme au BufWritePre <buffer> call StripTrailingWhitespace()
+  augroup END
+
+  augroup type_make
+    au!
+    au FileType make setlocal noet ts=4 sts=4 sw=4
+    au FileType make au BufWritePre <buffer> call StripTrailingWhitespace()
+  augroup END
+
+  augroup type_mutt
+    au!
+    au BufRead,BufNewFile *mutt-* setlocal filetype=mail
+    au FileType mail setlocal tw=72
+  augroup END
+
+  augroup type_pandoc
+    au!
+    au BufRead,BufNewFile *.{ft,md,markdown} setlocal filetype=pandoc
+    au FileType pandoc setlocal et ts=4 sts=4 sw=4
+  augroup END
+
+  augroup type_php
+    au!
+    au FileType php setlocal et ts=4 sts=4 sw=4
+    au FileType php au BufWritePre <buffer> call StripTrailingWhitespace()
+  augroup END
+
+  augroup type_python
+    au!
+    " PEP8 compliance (set 1 tab = 4 chars explicitly, even if set
+    " earlier, as it is important)
+    " au FileType python setlocal et ts=4 sts=4 sw=4
+    "       \ | setlocal textwidth=78
+    "       \ | match ErrorMsg '\%>120v.\+'
+
+    " But disable autowrapping as it is super annoying
+    " au FileType python setlocal formatoptions-=t
+    au FileType python BracelessEnable +indent +highlight
+    au FileType python setlocal et ts=4 sts=4 sw=4
+    au FileType python au BufWritePost,BufReadPost <buffer> Neomake
+    au FileType python au BufWritePre <buffer> call StripTrailingWhitespace()
+  augroup END
+
+  augroup type_rst
+    au FileType rst setlocal et ts=4 sts=4 sw=4
+  augroup END
+
+  augroup type_ruby
+    au!
+    au FileType ruby setlocal et ts=2 sts=2 sw=2
+    au FileType ruby au BufWritePre <buffer> call StripTrailingWhitespace()
+  augroup END
+
+  augroup type_tmux
+    au!
+    au BufRead,BufNewFile .tmux.conf setlocal filetype=tmux.conf
+    au FileType tmux.conf setlocal et ts=2 sts=2 sw=2
+  augroup END
+
+  augroup type_typescript
+    au!
+    au FileType typescript setlocal et ts=2 sts=2 sw=2
+    au FileType typescript nnoremap <leader>b Odebugger;<esc>
+    au FileType typescript au BufWritePost,BufReadPost <buffer> Neomake
+    au FileType javascript au BufWritePre <buffer> call StripTrailingWhitespace()
+  augroup END
+
+  augroup type_vim
+    au!
+    au FileType vim setlocal et ts=2 sts=2 sw=2
+
+    " Bind <F1> to show the keyword under cursor
+    " general help can still be entered manually, with :h
+    au FileType vim noremap <buffer> <F1> <Esc>:help <C-r><C-w><CR>
+    au FileType vim noremap! <buffer> <F1> <Esc>:help <C-r><C-w><CR>
+    au FileType vim au BufWritePre <buffer> call StripTrailingWhitespace()
+  augroup END
+
+  augroup type_xml
+    au!
+    au FileType xml setlocal et ts=4 sts=4 sw=4
+    au FileType xml au BufWritePre <buffer> call StripTrailingWhitespace()
+  augroup END
+
+  augroup type_yaml
+    au!
+    au BufRead,BufNewFile *.fdoc setlocal filetype=yaml
+    au FileType yaml setlocal et ts=2 sts=2 sw=2
+    au FileType yaml au BufWritePre <buffer> call StripTrailingWhitespace()
+  augroup END
+
+  augroup bundle_pencil
+    au!
+    au FileType pandoc
+          \   call pencil#init({'textwidth': 78})
+          \ | call lexical#init()
+          \ | call litecorrect#init()
+          \ | setlocal spell spl=en_us fdl=4 noru nonu nornu
+          \ | setlocal fdo+=search
+  augroup END
+
+  augroup bundle_emmet
+    au!
+    au FileType html,{c,le,sc}ss EmmetInstall
+  augroup END
+
+  augroup bundle_goyo
+    au!
+    au User GoyoEnter nested call <SID>goyo_enter()
+    au User GoyoLeave nested call <SID>goyo_leave()
+  augroup END
+
+  augroup bundle_surround
+    au!
+    " FileType-dependent mapping of "-" (ASCII 45) as a replacement string
+    au FileType php let b:surround_45 = "<?php \r ?>"
+  augroup END
+
+endif
+
+
+function! s:goyo_enter()
+  silent !tmux set status off
+  set noshowmode
+  set noshowcmd
+  set scrolloff=999
+  let b:quitting = 0
+  let b:quitting_bang = 0
+  autocmd QuitPre <buffer> let b:quitting = 1
+  cabbrev <buffer> q! let b:quitting_bang = 1 <bar> q!
+  Limelight
+endfunction
+
+function! s:goyo_leave()
+  silent !tmux set status on
+  set showmode
+  set showcmd
+  set scrolloff=5
+  " Quit Vim if this is the only remaining buffer
+  if b:quitting && len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) == 1
+    if b:quitting_bang
+      qa!
+    else
+      qa
+    endif
+  endif
+  Limelight!
+endfunction
+
+" vim: set sw=2 ts=2 sts=2 et tw=78 nospell:

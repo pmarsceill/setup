@@ -1,0 +1,25 @@
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
+[user]
+	name = Patrick Marsceill
+	email = patrick.marsceill@gmail.com
+	signingkey = AEAF30C14952BCC5
+
+[hub]
+protocol = https
+
+[core]
+	excludesfile = /Users/pmarsceill/.gitignore_global
+	editor = nvim
+[push]
+	default = simple
+[github]
+	user = pmarsceill
+[credential]
+	helper = osxkeychain
+[commit]
+	gpgsign = true
+[gpg]
+	program = gpg2
