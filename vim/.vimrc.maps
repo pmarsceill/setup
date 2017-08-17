@@ -1,0 +1,145 @@
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""" MAPPINGS """""""""""""""""""""""""""""""""""
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" map
+map <C-J> <C-W>j<C-W>_
+map <C-K> <C-W>k<C-W>_
+map <C-L> <C-W>l<C-W>_
+map <C-H> <C-W>h<C-W>_
+map <S-H> gT
+map <S-L> gt
+map <Leader>fc /\v^[<\|=>]{7}( .*\|$)<CR>
+map [F $
+map [H g0
+map <Leader>ew :e %%
+map <Leader>es :sp %%
+map <Leader>ev :vsp %%
+"map <Leader>et :tabe %%
+map <Leader>= <C-w>=
+map <Leader>W :call WordProcessorMode()<CR>
+map <Leader>tt :TagbarToggle<CR>
+map zl zL
+map zh zH
+"map <silent> <F11> :call system("wmctrl -ir " . v:windowid . " -b toggle,fullscreen")<CR>
+map <F1> <Esc>
+map <Up> <C-W>k<C-W>_
+map <Down> <C-W>j<C-W>_
+map <Left> <C-W>h<C-W>_
+map <Right> <C-W>l<C-W>_
+map  <Esc>[; <C-Semicolon>
+map! <Esc>[; <C-Semicolon>
+
+" vmap
+vmap <C-Up> xkP`[V`]
+vmap <C-Down> xp`[V`]
+
+" imap
+imap [F $
+imap [H g0
+imap <F1> <Esc>
+imap <expr> <tab> emmet#expandAbbrIntelligent("\<tab>")
+
+" noremap
+noremap j gj
+noremap k gk
+
+" inoremap
+inoremap jk <Esc>
+inoremap <Up> <nop>
+inoremap <Down> <nop>
+inoremap <Left> <nop>
+inoremap <Right> <nop>
+" Conflicts with Pencil:
+"inoremap <C-U> <C-G>u<C-U>
+
+" nnoremap
+nnoremap - -
+nnoremap Y y$
+nnoremap <silent> <Leader><Space> :GitFiles<CR>
+nnoremap <silent> <Leader><CR> :Buffers<CR>
+nnoremap <silent> <Leader>O :History<CR>
+nnoremap <silent> <Leader>F :Files<CR>
+nnoremap <silent> <Leader>T :BTags<CR>
+nnoremap <silent> <Leader>L :Lines<CR>
+nnoremap <silent> <Leader>C :Commits<CR>
+nnoremap <silent> <Leader>H :Helptags<CR>
+nnoremap <silent> <Leader>s :Ags<Space>
+nnoremap <silent> <Leader>G :Goyo<CR>
+nnoremap <silent> <Leader>q :Sayonara!<CR>
+nnoremap <silent> <Leader>gs :Gstatus<CR>
+nnoremap <silent> <Leader>gd :Gdiff<CR>
+nnoremap <silent> <Leader>gc :Gcommit<CR>
+nnoremap <silent> <Leader>gb :Gblame<CR>
+nnoremap <silent> <Leader>gl :Glog<CR>
+nnoremap <silent> <Leader>gp :Git push<CR>
+nnoremap <silent> <Leader>gr :Gread<CR>
+nnoremap <silent> <Leader>gw :Gwrite<CR>
+nnoremap <silent> <Leader>ge :Gedit<CR>
+nnoremap <silent> <Leader>gi :Git add -p %<CR>
+nnoremap <silent> <Leader>gg :QuickfixsignsToggle<CR>
+nnoremap <silent> <Leader>ut :UndotreeToggle<CR>
+nnoremap <silent> <Leader>nt :NERDTreeToggle<CR>
+nnoremap <silent> <Leader>tf :call g:FixTabStops()<CR>
+nnoremap <silent> <S-Left> :SidewaysLeft<CR>
+nnoremap <silent> <S-Right> :SidewaysRight<CR>
+" nnoremap <C-Up> ddkP
+" nnoremap <C-Down> ddp
+nnoremap gV `[v`]
+nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
+nnoremap <Space> za
+" Remove the Windows ^M - when the encodings gets messed up
+nnoremap <Leader>mm mmHmt:%s/<C-V><CR>//ge<CR>'tzt'm
+nnoremap <silent> <Leader>ww :call StripTrailingWhitespace()<CR>
+nnoremap <silent> <leader>l :SyntasticCheck<CR>
+
+" vnoremap
+vnoremap < <gv
+vnoremap > >gv
+vnoremap . :normal .<CR>
+vnoremap <Up> <nop>
+vnoremap <Down> <nop>
+vnoremap <Right> <nop>
+vnoremap <Left> <nop>
+vnoremap <Space> zf
+
+" cnoremap
+cnoremap %% <C-R>=expand('%:h').'/'<CR>
+cnoremap <silent> <C-l> <C-\>eGetCompletions()<CR>
+"add an extra <CR> at the end of this line to automatically accept the fzf-selected completions.
+
+" cmap
+"cmap Tabe tabe
+cmap w!! w !sudo tee % >/dev/null
+cmap cwd lcd %:p:h
+cmap cd. lcd %:p:h
+
+" nmap
+nmap <Leader>f0 :set foldlevel=0<CR>
+nmap <Leader>f1 :set foldlevel=1<CR>
+nmap <Leader>f2 :set foldlevel=2<CR>
+nmap <Leader>f3 :set foldlevel=3<CR>
+nmap <Leader>f4 :set foldlevel=4<CR>
+nmap <Leader>f5 :set foldlevel=5<CR>
+nmap <Leader>f6 :set foldlevel=6<CR>
+nmap <Leader>f7 :set foldlevel=7<CR>
+nmap <Leader>f8 :set foldlevel=8<CR>
+nmap <Leader>f9 :set foldlevel=9<CR>
+nmap <silent> <Leader>/ :nohlsearch<CR>
+nmap <Leader>ff [I:let nr = input("Which one: ")<Bar>exe "normal " . nr ."[\t"<CR>
+nmap <Leader>jt <Esc>:%!python -m json.tool<CR><Esc>:set filetype=json<CR>
+nmap ga <Plug>(EasyAlign)
+nmap <Leader><Tab> <Plug>(fzf-maps-n)
+
+" omap
+omap <Leader><Tab> <Plug>(fzf-maps-o)
+
+" smap
+
+" xmap
+xmap ga <Plug>(EasyAlign)
+xmap <Leader><Tab> <Plug>(fzf-maps-x)
+
+" Commands
+
+" vim: set sw=2 ts=2 sts=2 et tw=78 nospell:
