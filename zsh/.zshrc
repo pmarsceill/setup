@@ -85,6 +85,7 @@ source $ZSH/oh-my-zsh.sh
 
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 eval "$(nodenv init -)"
+eval "$(hub alias -s)"
 
 export PATH=/Users/pmarsceill/.themekit:$PATH
 
