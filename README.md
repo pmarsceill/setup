@@ -1,6 +1,12 @@
 # Dotfiles
 My dotfiles (configuration files) for commonly used applications.
 
+- Git
+- ohmyzsh
+- Neovim
+- irssi
+- iterm2
+- zsh
 
 ## On MacOS
 ```
