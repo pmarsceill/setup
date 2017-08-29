@@ -9,7 +9,8 @@ My dotfiles (configuration files) for commonly used applications.
 - `brew install zsh zsh-completions` Install zsh
 - `chsh -s $(which zsh)` Make zsh default shell
 - `sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"` Install ohmyzsh
-:w
+
+### nvim and zshell in iterm2
 
 ![Terminal and Vim](https://user-images.githubusercontent.com/896475/29837734-03967d6a-8cc7-11e7-839c-f69fcdaabe67.png)
 
