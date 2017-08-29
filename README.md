@@ -11,6 +11,8 @@ My dotfiles (configuration files) for commonly used applications.
 - `sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"` Install ohmyzsh
 :w
 
+![Terminal and Vim](https://user-images.githubusercontent.com/896475/29837734-03967d6a-8cc7-11e7-839c-f69fcdaabe67.png)
+
 ## On MacOS
 ```
 $ git clone https://github.com/pmarsceill/dotfiles ~/.dotfiles
