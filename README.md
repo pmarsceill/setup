@@ -1,12 +1,15 @@
 # Dotfiles
 My dotfiles (configuration files) for commonly used applications.
 
-- Git
-- ohmyzsh
-- Neovim
-- irssi
-- iterm2
-- zsh
+## Install dependencies and prep system
+
+### Dev tools
+- Download and install latest version of Xcode from the Mac App Store.
+- Download and install Xcode Command Line Tools from https://developer.apple.com/downloads/.
+- `brew install zsh zsh-completions` Install zsh
+- `chsh -s $(which zsh)` Make zsh default shell
+- `sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"` Install ohmyzsh
+:w
 
 ## On MacOS
 ```
