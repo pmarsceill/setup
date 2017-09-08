@@ -62,6 +62,7 @@ $ brew install stow
 Use Stow to create symlinks for each directory to `$HOME` (or do it yourself manually)
 ```
 $ cd ~/.dotfiles
+$ stow -t "$HOME" "alfred"
 $ stow -t "$HOME" "bash"
 $ stow -t "$HOME" "git"
 $ stow -t "$HOME" "irc"
