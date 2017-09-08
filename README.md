@@ -4,18 +4,33 @@ My dotfiles (configuration files) for commonly used applications.
 ## New system prep
 
 ### Install dev tools
-- Download and install latest version of Xcode from the Mac App Store.
+- Download and [install latest version of Xcode from the Mac App Store](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&ved=0ahUKEwiw47aH6JXWAhUhjlQKHSRnBEIQFggoMAA&url=https%3A%2F%2Fitunes.apple.com%2Fus%2Fapp%2Fxcode%2Fid497799835%3Fmt%3D12&usg=AFQjCNGrxKmVtXUdvUU3MhqZhP4MHT6Gtg).
 - Download and install Xcode Command Line Tools from https://developer.apple.com/downloads/.
--  Install Homebrew 
-`/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
-- Install zsh
-`brew install zsh zsh-completions` 
--  Make zsh default shell
-`chsh -s $(which zsh)`
--  Install ohmyzsh
-`sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"`
-- Install NeoVim
-`brew install neovim`
+
+Install Homebrew 
+```
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+```
+
+Install zsh
+```
+brew install zsh zsh-completions
+``` 
+
+Make zsh default shell
+```
+chsh -s $(which zsh)
+```
+
+Install ohmyzsh
+```
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+```
+
+Install NeoVim
+```
+brew install neovim
+```
 
 #### nvim and zshell in iterm2
 
