@@ -64,9 +64,9 @@ Use Stow to create symlinks for each directory to `$HOME` (or do it yourself man
 $ cd ~/.dotfiles
 $ stow -t "$HOME" "alfred"
 $ stow -t "$HOME" "bash"
+$ stow -t "$HOME" "desktop-bg"
 $ stow -t "$HOME" "git"
 $ stow -t "$HOME" "irc"
-$ stow -t "$HOME" "git"
 $ stow -t "$HOME" "iterm"
 $ stow -t "$HOME" "vim"
 $ stow -t "$HOME" "zsh"
