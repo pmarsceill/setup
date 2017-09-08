@@ -44,6 +44,12 @@ Install NeoVim
 brew install neovim
 ```
 
+Install Plug
+```
+curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+```
+
 #### nvim and zshell in iterm2
 
 ![Terminal and Vim](https://user-images.githubusercontent.com/896475/29837734-03967d6a-8cc7-11e7-839c-f69fcdaabe67.png)
