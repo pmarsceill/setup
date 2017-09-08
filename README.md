@@ -1,20 +1,48 @@
 # Dotfiles
 My dotfiles (configuration files) for commonly used applications.
 
-## Install dependencies and prep system
+## New system prep
 
-### Dev tools
-- Download and install latest version of Xcode from the Mac App Store.
+### Install dev tools
+- Download and [install latest version of Xcode from the Mac App Store](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&ved=0ahUKEwiw47aH6JXWAhUhjlQKHSRnBEIQFggoMAA&url=https%3A%2F%2Fitunes.apple.com%2Fus%2Fapp%2Fxcode%2Fid497799835%3Fmt%3D12&usg=AFQjCNGrxKmVtXUdvUU3MhqZhP4MHT6Gtg).
 - Download and install Xcode Command Line Tools from https://developer.apple.com/downloads/.
-- `brew install zsh zsh-completions` Install zsh
-- `chsh -s $(which zsh)` Make zsh default shell
-- `sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"` Install ohmyzsh
 
-### nvim and zshell in iterm2
+Install Homebrew 
+```
+/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+```
+
+Install zsh
+```
+brew install zsh zsh-completions
+``` 
+
+Make zsh default shell
+```
+chsh -s $(which zsh)
+```
+
+Install ohmyzsh
+```
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+```
+
+Install NeoVim
+```
+brew install neovim
+```
+
+#### nvim and zshell in iterm2
 
 ![Terminal and Vim](https://user-images.githubusercontent.com/896475/29837734-03967d6a-8cc7-11e7-839c-f69fcdaabe67.png)
 
-## On MacOS
+### Install other utilities
+- Download and [install 1Password from Mac App Store](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&ved=0ahUKEwjH99Oa55XWAhWIy4MKHe8ACAEQFggoMAA&url=https%3A%2F%2Fitunes.apple.com%2Fus%2Fapp%2F1password-password-manager-and-secure-wallet%2Fid443987910%3Fmt%3D12&usg=AFQjCNGgeT9WzxbM-7n-SRIrRwgvQe8krQ)
+- Download and [install Alfred](https://cachefly.alfredapp.com/Alfred_3.4.1_860.dmg)
+- Download and [install Aware from Mac App Store](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=1&ved=0ahUKEwiOkIfD55XWAhXFpYMKHQ6QCV4QFggoMAA&url=https%3A%2F%2Fitunes.apple.com%2Fus%2Fapp%2Faware%2Fid1082170746%3Fmt%3D12&usg=AFQjCNGi5u90a5faPxTgk1PyiDMXZuWBfw)
+- Download and [install Dropbox](https://www.dropbox.com/download?os=mac)
+
+## Install these dotfiles on MacOS
 ```
 $ git clone https://github.com/pmarsceill/dotfiles ~/.dotfiles
 ```
@@ -27,5 +55,15 @@ $ brew install stow
 Use Stow to create symlinks for each directory to `$HOME` (or do it yourself manually)
 ```
 $ cd ~/.dotfiles
+$ stow -t "$HOME" "bash"
 $ stow -t "$HOME" "git"
+$ stow -t "$HOME" "irc"
+$ stow -t "$HOME" "git"
+$ stow -t "$HOME" "iterm"
+$ stow -t "$HOME" "vim"
+$ stow -t "$HOME" "zsh"
 ```
+
+## To do
+- [ ] Automatically symlink all the directories with one command
+- [ ] Add a setup script that installs application dependencies (like `brew install hub`, etc...)
