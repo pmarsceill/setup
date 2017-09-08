@@ -1,5 +1,5 @@
 # Dotfiles
-My dotfiles (configuration files) for commonly used applications.
+My dotfiles (configuration files) for commonly used applications and MacOS settings
 
 ## New system prep
 
