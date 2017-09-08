@@ -6,11 +6,16 @@ My dotfiles (configuration files) for commonly used applications.
 ### Install dev tools
 - Download and install latest version of Xcode from the Mac App Store.
 - Download and install Xcode Command Line Tools from https://developer.apple.com/downloads/.
-- `/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"` Install Homebrew
-- `brew install zsh zsh-completions` Install zsh
-- `chsh -s $(which zsh)` Make zsh default shell
-- `sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"` Install ohmyzsh
-- `brew install neovim` Install NeoVim
+-  Install Homebrew 
+`/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"`
+- Install zsh
+`brew install zsh zsh-completions` 
+-  Make zsh default shell
+`chsh -s $(which zsh)`
+-  Install ohmyzsh
+`sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"`
+- Install NeoVim
+`brew install neovim`
 
 #### nvim and zshell in iterm2
 
