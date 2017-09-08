@@ -72,6 +72,14 @@ $ stow -t "$HOME" "vim"
 $ stow -t "$HOME" "zsh"
 ```
 
+## Set OS prefs
+
+### Set desktop bg
+`osascript -e 'tell application “Finder” to set desktop picture to POSIX file "~/.desktop.jpg"'`
+
+### Make darkmode the default
+`sudo defaults write /Library/Preferences/.GlobalPreferences.plist _HIEnableThemeSwitchHotKey -bool true`
+
 ## To do
 - [ ] Automatically symlink all the directories with one command
 - [ ] Add a setup script that installs application dependencies (like `brew install hub`, etc...)
