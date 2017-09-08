@@ -12,6 +12,13 @@ Install Homebrew
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 ```
 
+Install [Git](https://downloads.sourceforge.net/project/git-osx-installer/git-2.14.1-intel-universal-mavericks.dmg?r=https%3A%2F%2Fgit-scm.com%2Fdownload%2Fmac&ts=1504882896&use_mirror=astuteinternet)
+
+Install Hub
+```
+brew install hub
+```
+
 Install zsh
 ```
 brew install zsh zsh-completions
