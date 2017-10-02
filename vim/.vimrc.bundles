@@ -63,10 +63,7 @@ Plug 'kana/vim-textobj-user' | Plug 'whatyouhide/vim-textobj-xmlattr'
 
 Plug 'vim-airline/vim-airline'                                                  " Airline down below
 Plug 'vim-airline/vim-airline-themes'                                           " Airline theme colors
-Plug 'chriskempson/base16-vim'                                                  " More awesome colors through science
-Plug 'junegunn/seoul256.vim'                                                    " Colorscheme based on the Seoul color palette (light and dark)
 Plug 'mhinz/vim-startify'                                                       " Fancy start screen for Vim
-Plug 'jackiehluo/vim-material'                                                  " Material syntax theme
 Plug 'ryanoasis/vim-devicons'
 Plug 'NLKNguyen/papercolor-theme'
 
