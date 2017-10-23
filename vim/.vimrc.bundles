@@ -69,7 +69,7 @@ Plug 'junegunn/limelight.vim'
 Plug 'reedes/vim-lexical'                                                       " Thesaurus, dictionary, and spellchecking (:h lexical)
 Plug 'reedes/vim-litecorrect'                                                   " Lightweight autocorrection
 Plug 'kana/vim-textobj-user'
-      \ | Plug 'reedes/vim-textobj-quote', { 'for': ['pandoc', 'html', 'erb'] }                " Text object extension for typographic quotes and sentences
+      \ | Plug 'reedes/vim-textobj-quote', { 'for': ['pandoc', 'html', 'erb'] } " Text object extension for typographic quotes and sentences
 Plug 'kana/vim-textobj-user'
       \ | Plug 'reedes/vim-textobj-sentence', { 'for': ['pandoc'] }
 Plug 'junegunn/vim-emoji'                                                       " Emoji helpers
@@ -89,7 +89,6 @@ Plug 'tpope/vim-commentary'                                                     
 Plug 'mattn/emmet-vim', { 'for': ['html', 'css', 'less', 'scss'] }              " Emmet (:h emmet)
 Plug 'cohama/lexima.vim'                                                        " Context-aware auto-closing pairs (:h lexima)
 Plug 'terryma/vim-multiple-cursors'                                             " Multiple cursors (:h multiple-cursors)
-Plug 'benekastah/neomake'                                                       " Syntax checking (:h neomake)
 Plug 'scrooloose/nerdtree'
       \ | Plug 'Xuyuanp/nerdtree-git-plugin', { 'on': ['NERDTreeToggle'] }
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'                                  " Highlight NerdTREE
@@ -132,7 +131,7 @@ Plug 'tmux-plugins/vim-tmux', { 'for': 'tmux' }
 Plug 'Quramy/tsuquyomi', { 'for': 'typescript' }
 
 " Linting
-Plug 'scrooloose/syntastic'
+Plug 'w0rp/ale'
 
 call plug#end()
 
