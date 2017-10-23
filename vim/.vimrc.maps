@@ -56,7 +56,6 @@ inoremap <Right> <nop>
 " nnoremap
 nnoremap - -
 nnoremap Y y$
-nnoremap <silent> <Leader><Space> :GitFiles<CR>
 nnoremap <silent> <Leader><CR> :Buffers<CR>
 nnoremap <silent> <Leader>O :History<CR>
 nnoremap <silent> <Leader>F :Files<CR>
@@ -67,24 +66,12 @@ nnoremap <silent> <Leader>H :Helptags<CR>
 nnoremap <silent> <Leader>s :Ags<Space>
 nnoremap <silent> <Leader>G :Goyo<CR>
 nnoremap <silent> <Leader>q :Sayonara!<CR>
-nnoremap <silent> <Leader>gs :Gstatus<CR>
-nnoremap <silent> <Leader>gd :Gdiff<CR>
-nnoremap <silent> <Leader>gc :Gcommit<CR>
-nnoremap <silent> <Leader>gb :Gblame<CR>
-nnoremap <silent> <Leader>gl :Glog<CR>
-nnoremap <silent> <Leader>gp :Git push<CR>
-nnoremap <silent> <Leader>gr :Gread<CR>
-nnoremap <silent> <Leader>gw :Gwrite<CR>
-nnoremap <silent> <Leader>ge :Gedit<CR>
-nnoremap <silent> <Leader>gi :Git add -p %<CR>
 nnoremap <silent> <Leader>gg :QuickfixsignsToggle<CR>
 nnoremap <silent> <Leader>ut :UndotreeToggle<CR>
 nnoremap <silent> <Leader>nt :NERDTreeToggle<CR>
 nnoremap <silent> <Leader>tf :call g:FixTabStops()<CR>
 nnoremap <silent> <S-Left> :SidewaysLeft<CR>
 nnoremap <silent> <S-Right> :SidewaysRight<CR>
-" nnoremap <C-Up> ddkP
-" nnoremap <C-Down> ddp
 nnoremap gV `[v`]
 nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
 nnoremap <Space> za

@@ -46,7 +46,6 @@ if has('autocmd')
   augroup type_css
     au!
     au FileType {c,le,sc}ss setlocal et ts=2 sts=2 sw=2
-    au FileType {c,le,sc}ss,stylus setlocal foldmethod=marker foldmarker={,}
     au FileType {c,le,sc}ss,stylus au BufWritePre <buffer> call StripTrailingWhitespace()
     au FileType scss setlocal iskeyword+=-
   augroup END
@@ -55,7 +54,7 @@ if has('autocmd')
     au!
     au BufRead,BufNewFile *.phtml setlocal filetype=html.php
     au BufRead,BufNewFile *.jsp setlocal filetype=html.jsp
-    au FileType html setlocal et ts=4 sts=4 sw=4
+    au FileType html setlocal et ts=2 sts=2 sw=2
     " Auto-tidy selection
     au FileType html vnoremap <leader>x :!tidy -q -i --show-errors 0 --show-body-only 1 --wrap 0<cr><cr>
     au FileType html au BufWritePre <buffer> call StripTrailingWhitespace()
@@ -69,7 +68,7 @@ if has('autocmd')
 
   augroup type_go
     au!
-    au FileType go setlocal et ts=4 sts=4 sw=4
+    au FileType go setlocal et ts=2 sts=2 sw=2
     au FileType go au BufWritePre <buffer> call StripTrailingWhitespace()
   augroup END
 
@@ -102,7 +101,7 @@ if has('autocmd')
 
   augroup type_javascript
     au!
-    au FileType javascript setlocal et ts=4 sts=4 sw=4
+    au FileType javascript setlocal et ts=2 sts=2 sw=2
     au FileType javascript nnoremap <leader>b Odebugger;<esc>
     " au FileType javascript au BufEnter <buffer> call JavaScriptFold()
     "       \| %foldo | g/\/\*\(.*\)\(\*\/\)\@<!$/foldc
@@ -143,12 +142,6 @@ if has('autocmd')
     au!
     au BufRead,BufNewFile *mutt-* setlocal filetype=mail
     au FileType mail setlocal tw=72
-  augroup END
-
-  augroup type_pandoc
-    au!
-    au BufRead,BufNewFile *.{ft,md,markdown} setlocal filetype=pandoc
-    au FileType pandoc setlocal et ts=4 sts=4 sw=4
   augroup END
 
   augroup type_php
@@ -210,7 +203,7 @@ if has('autocmd')
 
   augroup type_xml
     au!
-    au FileType xml setlocal et ts=4 sts=4 sw=4
+    au FileType xml setlocal et ts=2 sts=2 sw=2
     au FileType xml au BufWritePre <buffer> call StripTrailingWhitespace()
   augroup END
 
@@ -221,19 +214,9 @@ if has('autocmd')
     au FileType yaml au BufWritePre <buffer> call StripTrailingWhitespace()
   augroup END
 
-  augroup bundle_pencil
-    au!
-    au FileType pandoc
-          \   call pencil#init({'textwidth': 78})
-          \ | call lexical#init()
-          \ | call litecorrect#init()
-          \ | setlocal spell spl=en_us fdl=4 noru nonu nornu
-          \ | setlocal fdo+=search
-  augroup END
-
   augroup bundle_emmet
     au!
-    au FileType html,{c,le,sc}ss EmmetInstall
+    au FileType erb,html,{c,le,sc}ss EmmetInstall
   augroup END
 
   augroup bundle_goyo
