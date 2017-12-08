@@ -36,17 +36,6 @@ let g:ags_agargs = {
 " deoplete
 let g:deoplete#enable_at_startup = 1
 
-" " DevIcons
-" let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols = {} " needed
-" let g:WebDevIconsUnicodeDecorateFileNodesExtensionSymbols['go'] = ''
-" let g:WebDevIconsNerdTreeAfterGlyphPadding = ''
-" let g:WebDevIconsNerdTreeGitPluginForceVAlign = 1
-
-" Emmet
-let g:user_emmet_install_global = 0
-let g:user_emmet_expandabbr_key='<Tab>'
-autocmd FileType html,css,erb,scss EmmetInstall
-
 " golang
 " format with goimports instead of gofmt
 let g:go_fmt_command = "goimports"
@@ -59,6 +48,11 @@ let g:go_highlight_build_constraints = 1
 
 " Goyo
 let g:goyo_width = 81
+
+" gitgitter
+let g:gitgutter_sign_modified = '•'
+let g:gitgutter_sign_added = '•'
+let g:gitgutter_sign_removed = '•'
 
 " Disable haskell-vim omnifunc
 let g:haskellmode_completion_ghc = 0
@@ -148,24 +142,6 @@ let g:netrw_altv=1              " open files on right
 let g:netrw_preview=1           " open previews vertically
 let g:netrw_use_errorwindow=0   " suppress error window
 
-" Pandoc
-let g:pandoc#filetypes#handled = ['extra', 'markdown', 'pandoc', 'rst', 'textile']
-let g:pandoc#modules#disabled = ['bibliographies', 'spell']
-let g:pandoc#formatting#mode = 'h'
-let g:pandoc#formatting#textwidth = 77
-let g:pandoc#command#custom_open = 'MyPandocOpen'
-
-" Pencil / Writing Controls
-let g:pencil#wrapModeDefault = 'soft'
-let g:pencil#textwidth = 74
-let g:pencil#joinspaces = 0
-let g:pencil#cursorwrap = 1
-let g:pencil#conceallevel = 3
-let g:pencil#concealcursor = 'c'
-let g:airline_section_x = '%{PencilMode()}'
-let g:pencil#softDetectSample = 20
-let g:pencil#softDetectThreshold = 130
-
 " Polyglot
 let g:polyglot_disabled = [
       \ 'markdown',
@@ -179,9 +155,6 @@ let g:pymode_options_max_line_length = 120
 let g:pymode_lint_options_pep8 = {
       \ 'max_line_length': g:pymode_options_max_line_length
       \ }
-
-" simple-todo
-let g:simple_todo_list_symbol = '-'
 
 " Syntastic for linting
 let g:syntastic_check_on_open = 1
@@ -230,15 +203,10 @@ let g:tern_map_keys = 1
 let g:tern_show_argument_hints = 'on_hold'
 
 " UltiSnips
-let g:snips_author = 'Stephen Tudor'
-let g:snips_author_email = 'smt@smt.io'
-let g:UltiSnipsSnippetsDir = '~/.vim/UltiSnips'
-let g:UltiSnipsSnippetDirectories = ['UltiSnips']
-" better key bindings for UltiSnipsExpandTrigger
-" (http://stackoverflow.com/questions/14896327/ultisnips-and-youcompleteme/22253548#22253548)
-let g:UltiSnipsExpandTrigger = '<Tab>'
-let g:UltiSnipsJumpForwardTrigger = '<Tab>'
-let g:UltiSnipsJumpBackwardTrigger = '<S-Tab>'
+let g:UltiSnipsSnippetDirectories=$HOME.'/.vim/UltiSnips'
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 " sets
 " Use :help 'option' to see the documentation for the given option.

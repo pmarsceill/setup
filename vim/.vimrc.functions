@@ -291,6 +291,17 @@ if has("user_commands")
   command! -range=% HighlightRepeats <line1>,<line2>call HighlightRepeats()
 endif
 
+function! EmmetOrUltiSnips()
+  if getline('.') =~ '[<>]'
+    return "\<plug>(emmet-expand-abbr)"
+  else
+    return "\<plug>(UltiSnips#ExpandSnippet)"
+  endif
+endfunction
+
+let g:UltiSnipsExpandTrigger = '<F9>'
+imap <expr> <tab> EmmetOrUltiSnips()
+
 call InitializeDirectories()
 
 " vim: set sw=2 ts=2 sts=2 et tw=78 nospell:

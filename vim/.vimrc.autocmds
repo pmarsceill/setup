@@ -89,7 +89,7 @@ if has('autocmd')
 
   augroup type_jade
     au!
-    au FileType jade setlocal et ts=2 sts=2 sw=2
+    au FileType jade setlocal et ts=4 sts=2 sw=2
     au FileType jade au BufWritePre <buffer> call StripTrailingWhitespace()
   augroup END
 
@@ -212,11 +212,6 @@ if has('autocmd')
     au BufRead,BufNewFile *.fdoc setlocal filetype=yaml
     au FileType yaml setlocal et ts=2 sts=2 sw=2
     au FileType yaml au BufWritePre <buffer> call StripTrailingWhitespace()
-  augroup END
-
-  augroup bundle_emmet
-    au!
-    au FileType erb,html,{c,le,sc}ss EmmetInstall
   augroup END
 
   augroup bundle_goyo
