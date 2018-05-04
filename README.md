@@ -1,6 +1,7 @@
 # Dotfiles
 My dotfiles (configuration files) for commonly used applications and MacOS settings
 
+
 ## New system prep
 
 ### Install dev tools
