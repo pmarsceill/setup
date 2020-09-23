@@ -38,6 +38,7 @@ $ ./getbinaries.sh
 ### Install other utilities
 - Download and [install Alfred](https://cachefly.alfredapp.com/Alfred_4.1.1_1172.dmg)
 - Download and [install Dropbox](https://www.dropbox.com/download?os=mac)
+- Download and [install Karibiner Elements](https://karabiner-elements.pqrs.org)
 
 
 ## Install dotfiles
