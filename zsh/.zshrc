@@ -53,7 +53,7 @@ plugins=(git)
 
 # User configuration
 
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/pmarsceill/github/github/bin"
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/pmarsceill/github/github/bin:/Users/pmarsceill/go/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
@@ -88,7 +88,6 @@ alias python="python3"
 
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
 eval "$(nodenv init -)"
-eval "$(hub alias -s)"
 
 export PATH=/Users/pmarsceill/.themekit:$PATH
 
@@ -100,3 +99,5 @@ export NVM_DIR="$HOME/.nvm"
 
 GPG_TTY=$(tty)
 export GPG_TTY
+
+export GOPATH="$HOME/go"

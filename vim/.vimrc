@@ -21,6 +21,8 @@ call minpac#add('w0rp/ale')
 call minpac#add('SirVer/ultisnips')
 call minpac#add('honza/vim-snippets')
 call minpac#add('ervandew/supertab')
+call minpac#add('junegunn/vim-emoji')
+call minpac#add('tpope/vim-eunuch')
 
 " Getting around
 call minpac#add('junegunn/fzf')
@@ -36,6 +38,7 @@ call minpac#add('whatyouhide/vim-textobj-erb')
 call minpac#add('whatyouhide/vim-textobj-xmlattr')
 call minpac#add('nelstrom/vim-textobj-rubyblock')
 call minpac#add('jasonlong/vim-textobj-css')
+call minpac#add('inside/vim-textobj-jsxattr')
 
 " Colors
 call minpac#add('arcticicestudio/nord-vim')
@@ -45,6 +48,8 @@ call minpac#add('jasonlong/nordish-vim')
 call minpac#add('JulesWang/css.vim') " The default syntax repo, but more up-to-date
 call minpac#add('pangloss/vim-javascript')
 call minpac#add('plasticboy/vim-markdown')
+call minpac#add('styled-components/vim-styled-components')
+call minpac#add('maxmellon/vim-jsx-pretty')
 
 command! Pu source $MYVIMRC | call minpac#update()
 command! Pc source $MYVIMRC | call minpac#clean()
@@ -57,7 +62,7 @@ let mapleader = ","
 " auto-reload when edited
 autocmd! bufwritepost .vimrc source %
 
-nnoremap <leader>v :e $MYVIMRC<CR>
+nnoremap <leader>v :e $MYVIMRC<CR->
 noremap <silent> <leader>V :source $MYVIMRC<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -141,6 +146,9 @@ noremap cp yap<S-}>p
 
 " Turn off highlighting
 nnoremap <leader><space> :noh<CR>
+
+" insert current date in iso8601 format
+nnoremap <leader>cdt "=strftime('%FT%T%z')<CR>P
 
 " Navigate splits
 nmap <silent> <c-k> :wincmd k<CR>
@@ -250,14 +258,22 @@ let g:gitgutter_sign_removed = '•'
 let g:ale_sign_error = '×'
 let g:ale_sign_warning = '▲'
 let g:ale_set_loclist = 0
+let g:ale_linter_aliases = {'jsx': ['css', 'javascript']}
+let g:ale_linters = {'jsx': ['stylelint', 'eslint']}
 
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
 nmap <silent> <C-j> <Plug>(ale_next_wrap)
+
+augroup FiletypeGroup
+  autocmd!
+  au BufNewFile,BufRead *.jsx set filetype=javascript.jsx
+augroup END
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vim-better-whitespace
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 autocmd! BufEnter * EnableStripWhitespaceOnSave
+let g:strip_whitespace_confirm=0
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " UltiSnip

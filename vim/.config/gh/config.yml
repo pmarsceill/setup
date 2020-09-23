@@ -1,0 +1,4 @@
+hosts:
+    github.com:
+        oauth_token: 49276456ece9fadf1a4a6feed93abdc5d1f85506
+        user: pmarsceill
