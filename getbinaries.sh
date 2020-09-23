@@ -25,6 +25,12 @@ brew install nodenv
 # Install NeoVim
 brew install neovim
 
+# Install non-system Python3
+brew install python
+
+# Install neovim python package
+pip3 install neovim
+
 # Install Plug
 git clone https://github.com/k-takata/minpac.git ~/.config/nvim/pack/minpac/opt/minpac
 
