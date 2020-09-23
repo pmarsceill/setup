@@ -32,7 +32,7 @@ $ cd ~/dotfiles
 
 ### Install the rest of the binaries
 ```
-$ getbinaries.sh
+$ ./getbinaries.sh
 ```
 
 ### Install other utilities
@@ -42,5 +42,5 @@ $ getbinaries.sh
 
 ## Install dotfiles
 ```
-$ install.sh
+$ ./install.sh
 ```
