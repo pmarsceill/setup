@@ -4,12 +4,12 @@ brew install stow
 
 # symlink all dot files
 
-stow -t "$HOME" "alfred"
-stow -t "$HOME" "bash"
-stow -t "$HOME" "desktop-bg"
-stow -t "$HOME" "git"
-stow -t "$HOME" "irc"
-stow -t "$HOME" "iterm"
-stow -t "$HOME" "vim"
-stow -t "$HOME" "zsh"
-stow -t "$HOME/.ohmyzsh/themes" "ohmyzsh/pmarsceill.zsh-theme"
+stow -t "$HOME" "alfred" --ignore '.*\DS_Store'
+stow -t "$HOME" "bash" --ignore '.*\DS_Store'
+stow -t "$HOME" "desktop-bg" --ignore '.*\DS_Store'
+stow -t "$HOME" "git" --ignore '.*\DS_Store'
+stow -t "$HOME" "irc" --ignore '.*\DS_Store'
+stow -t "$HOME" "iterm" --ignore '.*\DS_Store'
+stow -t "$HOME" "vim" --ignore '.*\DS_Store'
+stow -t "$HOME" "zsh" --ignore '.*\DS_Store'
+stow -t "$HOME/.ohmyzsh/themes" "ohmyzsh/pmarsceill.zsh-theme" --ignore '.*\DS_Store'
