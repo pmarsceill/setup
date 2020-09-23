@@ -39,6 +39,7 @@ $ ./getbinaries.sh
 - Download and [install Alfred](https://cachefly.alfredapp.com/Alfred_4.1.1_1172.dmg)
 - Download and [install Dropbox](https://www.dropbox.com/download?os=mac)
 - Download and [install Karibiner Elements](https://karabiner-elements.pqrs.org)
+- Download and [install iTerm2](https://iterm2.com/downloads/stable/latest)
 
 
 ## Install dotfiles
