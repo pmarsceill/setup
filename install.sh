@@ -8,6 +8,7 @@ stow -t "$HOME/.oh-my-zsh" "oh-my-zsh" --ignore '.*\DS_Store'
 stow -t "$HOME/.config" "config" --ignore '.*\DS_Store'
 
 stow -t "$HOME" "alfred" --ignore '.*\DS_Store'
+stow -t "$HOME" "avatar" --ignore '.*\DS_Store'
 stow -t "$HOME" "bash" --ignore '.*\DS_Store'
 stow -t "$HOME" "desktop-bg" --ignore '.*\DS_Store'
 stow -t "$HOME" "git" --ignore '.*\DS_Store'
