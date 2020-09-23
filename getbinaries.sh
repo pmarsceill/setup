@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 # Install Mas
 brew install mas
 
