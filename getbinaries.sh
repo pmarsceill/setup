@@ -6,6 +6,7 @@ brew install mas
 
 # Install XCode
 mas install 497799835
+sudo xcodebuild -license accept
 
 # Install gh command line
 brew install gh
