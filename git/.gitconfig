@@ -6,7 +6,6 @@
 	name = Patrick Marsceill
 	email = patrick.marsceill@gmail.com
 	signingkey = 286B93882D828F40
-
 [core]
 	excludesfile = /Users/pmarsceill/.gitignore_global
 	editor = nvim
