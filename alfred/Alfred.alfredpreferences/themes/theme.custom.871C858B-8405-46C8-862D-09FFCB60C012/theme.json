@@ -1,0 +1,61 @@
+{
+  "alfredtheme" : {
+    "result" : {
+      "textSpacing" : 5,
+      "subtext" : {
+        "size" : 12,
+        "colorSelected" : "#030F0E86",
+        "font" : "System",
+        "color" : "#B8FFD47F"
+      },
+      "shortcut" : {
+        "size" : 16,
+        "colorSelected" : "#030F0EFF",
+        "font" : "System",
+        "color" : "#6AA79BFF"
+      },
+      "backgroundSelected" : "#1AB489FF",
+      "text" : {
+        "size" : 18,
+        "colorSelected" : "#02080BFF",
+        "font" : "System",
+        "color" : "#FFFFFFD8"
+      },
+      "iconPaddingHorizontal" : 4,
+      "paddingVertical" : 3,
+      "iconSize" : 40
+    },
+    "search" : {
+      "paddingVertical" : 2,
+      "background" : "#0D303EFF",
+      "spacing" : 4,
+      "text" : {
+        "size" : 34,
+        "colorSelected" : "#000000FF",
+        "font" : "System",
+        "color" : "#FFFFFFFF"
+      },
+      "backgroundSelected" : "#B2D7FFFF"
+    },
+    "window" : {
+      "color" : "#0F313EFF",
+      "paddingHorizontal" : 0,
+      "width" : 559,
+      "borderPadding" : 0,
+      "borderColor" : "#0000007F",
+      "blur" : 0,
+      "roundness" : 3,
+      "paddingVertical" : 4
+    },
+    "credit" : "pmarsceill",
+    "separator" : {
+      "color" : "#CBCBCBF3",
+      "thickness" : 0
+    },
+    "scrollbar" : {
+      "color" : "#0F313EFF",
+      "thickness" : 2
+    },
+    "name" : "pmarsceill dark"
+  }
+}
