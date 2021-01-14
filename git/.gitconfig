@@ -4,13 +4,13 @@
 	required = true
 [user]
 	name = Patrick Marsceill
-	email = patrick.marsceill@gmail.com
+	email = patrick@thismodernweb.com
 	signingkey = CACE3CF519B3E9DD
 [core]
 	excludesfile = /Users/pmarsceill/.gitignore_global
 	editor = nvim
 [push]
-	default = simple
+	default = upstream
 [github]
 	user = pmarsceill
 [credential]
