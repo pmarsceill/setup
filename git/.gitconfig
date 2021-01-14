@@ -10,7 +10,7 @@
 	excludesfile = /Users/pmarsceill/.gitignore_global
 	editor = nvim
 [push]
-	default = upstream
+	default = simple
 [github]
 	user = pmarsceill
 [credential]
