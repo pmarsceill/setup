@@ -1,0 +1,116 @@
+{
+	"features": [
+		{
+			"id": "github",
+			"name": "GitHub CLI",
+			"type": "option"
+		},
+		{
+			"id": "docker-in-docker",
+			"name": "Docker-in-Docker",
+			"type": "option",
+			"init": true,
+			"mounts": [
+				{
+					"source":"dind-var-lib-docker", 
+				 	"target":"/var/lib/docker", 
+				 	"type":"volume"
+				}
+			],
+			"privileged": true,
+			"entrypoint": "/usr/local/share/docker-init.sh"
+		},
+		{
+			"id": "nodejs",
+			"name": "Node.js",
+			"type": "choice",
+			"values": ["10", "12", "14", "16"],
+			"customValues": true,
+			"hint": "Select a Node.js version",
+			"extensions": ["dbaeumer.vscode-eslint"],
+			"exclude": [
+				"javascript-node",
+				"typescript-node",
+				"codespaces-linux"
+			],
+			"include": [
+				// Include and exclude support "definition-id@semver-version-or-range" notation.
+				// E.g.: "javascript-node@>=0.201.0 <0.204.0" (Note that whitespace matters to semver. See https://www.npmjs.com/package/semver.)
+				// Exclusions take precedence over inclusions.
+				// When there is at least one inclusion, not matching any inclusion results in exclusion.
+				// If more than one feature with the same "id" matches, the first one is applied.
+			]
+		},
+		{
+			"id": "git",
+			"name": "Git",
+			"type": "choice",
+			"values": ["latest"],
+			"customValues": true,
+			"hint": "Select or enter a Git version",
+			"options": {
+				"ppe": {
+					"type": "boolean",
+					"default": true,
+					"description": "Whether to install a prebuilt binary if available. The default is true."
+				}
+			}
+		// },
+		// {
+		// 	"id": "test",
+		// 	"name": "Test",
+		// 	"type": "choice",
+		// 	"values": ["1", "2", "3"],
+		// 	"containerEnv": {
+		// 		"VAR1": "VALUE1"
+		// 	},
+		// 	"settings": {
+		// 		"terminal.integrated.defaultProfile.linux": "zsh"
+		// 	},
+		// 	"mounts": [
+		// 		{
+		// 			"type": "bind",
+		// 			"source": "/var/run/docker.sock",
+		// 			"target": "/var/run/docker-host.sock"
+		// 		},
+		// 		{
+		// 			"type": "volume",
+		// 			"source": "dind-var-lib-docker",
+		// 			"target": "/var/lib/docker"
+		// 		}
+		// 	],
+		// "init": true,
+		// "capAdd": [
+		// 	"SYS_ADMIN",
+		// 	"NET_ADMIN"
+		// ],
+		// "securityOpt": [
+		// 	"label=user:USER",
+		// 	"label=role:ROLE"
+		// ]
+		},
+		{
+			"id": "test2",
+			"name": "Test",
+			"options": {
+				"version": {
+					"type": "string",
+					"proposals": ["latest", "1.0", "2.0"],
+					"default": "latest",
+					"description": "Version option."
+				},
+				"option1": {
+					"type": "boolean",
+					"default": true,
+					"description": "Boolean option."
+				},
+				"option2": {
+					"type": "string",
+					"enum": ["yes", "no", "maybe"],
+					"default": "maybe",
+					"description": "Enum option."
+				}
+			}
+		}
+	]
+}

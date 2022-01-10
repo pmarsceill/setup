@@ -1,0 +1,10 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.209.6/containers/chef-workstation
+{
+	"name": "Chef Workstation (Community)",
+	"image": "chef/chefworkstation:stable",
+	"settings": {},
+	"extensions": [
+		"chef-software.chef"
+	]
+}

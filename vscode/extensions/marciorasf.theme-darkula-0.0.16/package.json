@@ -1,0 +1,76 @@
+{
+	"name": "theme-darkula",
+	"version": "0.0.16",
+	"displayName": "Marciorasf's Dracula",
+	"homepage": "",
+	"description": "Darker and less blueish Dracula theme",
+	"publisher": "marciorasf",
+	"license": "MIT",
+	"scripts": {
+		"build": "node ./scripts/build.js",
+		"lint": "node ./scripts/lint.js",
+		"package": "vsce package -o ./bin/dracula.vsix",
+		"vsce-publish": "vsce publish"
+	},
+	"maintainers": [
+		"Márcio R A Souza Filho <marciorasf@gmail.com>"
+	],
+	"contributors": [
+		"Derek P Sifford <dereksifford@gmail.com>",
+		"Krzysztof Wisznarewski",
+		"Daniel Ramos",
+		"Eric Jackson",
+		"Elliott Pogue",
+		"Ajit Singh",
+		"Teddy Bradford"
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/marciorasf/Dracula.git"
+	},
+	"bugs": {
+		"url": "https://github.com/marciorasf/Dracula/issues"
+	},
+	"engines": {
+		"vscode": "^1.22.0"
+	},
+	"categories": [
+		"Themes"
+	],
+	"keywords": [
+		"dracula",
+		"dark",
+		"theme",
+		"color-theme"
+	],
+	"icon": "icon.png",
+	"galleryBanner": {
+		"color": "#3c4557",
+		"theme": "dark"
+	},
+	"contributes": {
+		"themes": [
+			{
+				"label": "Dracula",
+				"uiTheme": "vs-dark",
+				"path": "./theme/dracula.json"
+			}
+		]
+	},
+	"devDependencies": {
+		"js-yaml": "^3.13.1",
+		"prettier": "^1.19.1",
+		"tinycolor2": "^1.4.1",
+		"vsce": "^1.79.5"
+	},
+	"dependencies": {
+		"global": "^4.4.0"
+	},
+	"__metadata": {
+		"id": "66dd2c73-1119-40df-ab68-690a71af7997",
+		"publisherId": "50aed028-1da6-468a-ba41-96be467b6162",
+		"publisherDisplayName": "marciorasf",
+		"isPreReleaseVersion": false,
+		"installedTimestamp": 1641831935211
+	}
+}

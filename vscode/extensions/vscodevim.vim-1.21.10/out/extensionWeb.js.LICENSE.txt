@@ -1,0 +1,1174 @@
+/*! ../../../state/globalState */
+
+/*! ../../../textEditor */
+
+/*! ../../actions/commands/actions */
+
+/*! ../../actions/commands/digraphs */
+
+/*! ../../actions/commands/put */
+
+/*! ../../actions/operator */
+
+/*! ../../actions/plugins/pluginDefaultMappings */
+
+/*! ../../base */
+
+/*! ../../baseMotion */
+
+/*! ../../cmd_line/commandLine */
+
+/*! ../../cmd_line/commands/writequit */
+
+/*! ../../common/motion/cursor */
+
+/*! ../../common/motion/position */
+
+/*! ../../completion/lineCompletionProvider */
+
+/*! ../../configuration/configuration */
+
+/*! ../../configuration/decoration */
+
+/*! ../../error */
+
+/*! ../../globals */
+
+/*! ../../jumps/jump */
+
+/*! ../../mode/mode */
+
+/*! ../../package.json */
+
+/*! ../../register/register */
+
+/*! ../../state/globalState */
+
+/*! ../../state/recordedState */
+
+/*! ../../state/replaceState */
+
+/*! ../../state/searchState */
+
+/*! ../../state/substituteState */
+
+/*! ../../statusBar */
+
+/*! ../../textEditor */
+
+/*! ../../textobject/sentence */
+
+/*! ../../textobject/textobject */
+
+/*! ../../textobject/word */
+
+/*! ../../util/clipboard */
+
+/*! ../../util/externalCommand */
+
+/*! ../../util/logger */
+
+/*! ../../util/path */
+
+/*! ../../util/specialKeys */
+
+/*! ../../util/statusBarTextUtils */
+
+/*! ../../util/util */
+
+/*! ../../vimscript/exCommand */
+
+/*! ../../vimscript/exCommandParser */
+
+/*! ../../vimscript/lineRange */
+
+/*! ../../vimscript/parserUtils */
+
+/*! ../../vimscript/pattern */
+
+/*! ../actions/base */
+
+/*! ../actions/baseMotion */
+
+/*! ../actions/motion */
+
+/*! ../actions/operator */
+
+/*! ../actions/plugins/easymotion/easymotion */
+
+/*! ../actions/plugins/easymotion/easymotion.cmd */
+
+/*! ../base */
+
+/*! ../baseMotion */
+
+/*! ../cmd_line/commandLine */
+
+/*! ../cmd_line/commands/ascii */
+
+/*! ../cmd_line/commands/bang */
+
+/*! ../cmd_line/commands/bufferDelete */
+
+/*! ../cmd_line/commands/close */
+
+/*! ../cmd_line/commands/copy */
+
+/*! ../cmd_line/commands/deleteRange */
+
+/*! ../cmd_line/commands/digraph */
+
+/*! ../cmd_line/commands/file */
+
+/*! ../cmd_line/commands/fileInfo */
+
+/*! ../cmd_line/commands/goto */
+
+/*! ../cmd_line/commands/gotoLine */
+
+/*! ../cmd_line/commands/history */
+
+/*! ../cmd_line/commands/jumps */
+
+/*! ../cmd_line/commands/leftRightCenter */
+
+/*! ../cmd_line/commands/marks */
+
+/*! ../cmd_line/commands/nohl */
+
+/*! ../cmd_line/commands/only */
+
+/*! ../cmd_line/commands/print */
+
+/*! ../cmd_line/commands/put */
+
+/*! ../cmd_line/commands/quit */
+
+/*! ../cmd_line/commands/read */
+
+/*! ../cmd_line/commands/register */
+
+/*! ../cmd_line/commands/setoptions */
+
+/*! ../cmd_line/commands/sh */
+
+/*! ../cmd_line/commands/smile */
+
+/*! ../cmd_line/commands/sort */
+
+/*! ../cmd_line/commands/substitute */
+
+/*! ../cmd_line/commands/tab */
+
+/*! ../cmd_line/commands/terminal */
+
+/*! ../cmd_line/commands/undo */
+
+/*! ../cmd_line/commands/vscode */
+
+/*! ../cmd_line/commands/wall */
+
+/*! ../cmd_line/commands/write */
+
+/*! ../cmd_line/commands/writequit */
+
+/*! ../cmd_line/commands/writequitall */
+
+/*! ../cmd_line/commands/yank */
+
+/*! ../commands/wall */
+
+/*! ../common/motion/cursor */
+
+/*! ../common/motion/position */
+
+/*! ../configuration/configuration */
+
+/*! ../configuration/decoration */
+
+/*! ../configuration/notation */
+
+/*! ../configuration/remapper */
+
+/*! ../configurationValidator */
+
+/*! ../editorIdentity */
+
+/*! ../error */
+
+/*! ../globals */
+
+/*! ../history/historyFile */
+
+/*! ../iconfigurationValidator */
+
+/*! ../jumps/jump */
+
+/*! ../jumps/jumpTracker */
+
+/*! ../mode/mode */
+
+/*! ../notation */
+
+/*! ../register/register */
+
+/*! ../state/globalState */
+
+/*! ../state/recordedState */
+
+/*! ../state/remapState */
+
+/*! ../state/searchState */
+
+/*! ../statusBar */
+
+/*! ../textEditor */
+
+/*! ../textobject/paragraph */
+
+/*! ../textobject/textobject */
+
+/*! ../textobject/word */
+
+/*! ../transformations/execute */
+
+/*! ../transformations/transformations */
+
+/*! ../util/logger */
+
+/*! ../util/os */
+
+/*! ../util/path */
+
+/*! ../util/specialKeys */
+
+/*! ../util/statusBarTextUtils */
+
+/*! ../util/util */
+
+/*! ../util/vscodeContext */
+
+/*! ../vimscript/exCommandParser */
+
+/*! ../vimscript/pattern */
+
+/*! ../wrapping */
+
+/*! ./ */
+
+/*! ./../../../configuration/configuration */
+
+/*! ./../../../mode/mode */
+
+/*! ./../../../textEditor */
+
+/*! ./../../base */
+
+/*! ./../../cmd_line/commandLine */
+
+/*! ./../../cmd_line/commands/file */
+
+/*! ./../../cmd_line/commands/only */
+
+/*! ./../../cmd_line/commands/quit */
+
+/*! ./../../cmd_line/commands/tab */
+
+/*! ./../../common/motion/position */
+
+/*! ./../../common/number/numericString */
+
+/*! ./../../configuration/configuration */
+
+/*! ./../../mode/mode */
+
+/*! ./../../register/register */
+
+/*! ./../../textEditor */
+
+/*! ./../../transformations/transformations */
+
+/*! ./../actions/base */
+
+/*! ./../actions/commands/actions */
+
+/*! ./../actions/commands/insert */
+
+/*! ./../actions/operator */
+
+/*! ./../base */
+
+/*! ./../cmd_line/commandLine */
+
+/*! ./../cmd_line/commands/file */
+
+/*! ./../common/matching/matcher */
+
+/*! ./../common/matching/quoteMatcher */
+
+/*! ./../common/matching/tagMatcher */
+
+/*! ./../common/motion/position */
+
+/*! ./../configuration/configuration */
+
+/*! ./../editorIdentity */
+
+/*! ./../error */
+
+/*! ./../history/historyTracker */
+
+/*! ./../mode/mode */
+
+/*! ./../motion */
+
+/*! ./../operator */
+
+/*! ./../register/register */
+
+/*! ./../state/recordedState */
+
+/*! ./../state/replaceState */
+
+/*! ./../state/vimState */
+
+/*! ./../textEditor */
+
+/*! ./../transformations/transformer */
+
+/*! ./../util/clipboard */
+
+/*! ./actions */
+
+/*! ./base */
+
+/*! ./baseMotion */
+
+/*! ./commands/actions */
+
+/*! ./commands/commandLine */
+
+/*! ./commands/digraphs */
+
+/*! ./commands/insert */
+
+/*! ./commands/put */
+
+/*! ./commands/replace */
+
+/*! ./commands/search */
+
+/*! ./configuration/configuration */
+
+/*! ./configurationValidator */
+
+/*! ./decoration */
+
+/*! ./digraphs */
+
+/*! ./easymotion */
+
+/*! ./exCommand */
+
+/*! ./extensionBase */
+
+/*! ./iconfigurationValidator */
+
+/*! ./implementation */
+
+/*! ./jump */
+
+/*! ./languages/python/motion */
+
+/*! ./lineRange */
+
+/*! ./logger */
+
+/*! ./markerGenerator */
+
+/*! ./mode */
+
+/*! ./mode/mode */
+
+/*! ./modeHandler */
+
+/*! ./motion */
+
+/*! ./notation */
+
+/*! ./operator */
+
+/*! ./paragraph */
+
+/*! ./parserUtils */
+
+/*! ./pattern */
+
+/*! ./plugins/sneak */
+
+/*! ./quit */
+
+/*! ./recordedState */
+
+/*! ./searchState */
+
+/*! ./shams */
+
+/*! ./src/actions/include-main */
+
+/*! ./src/cmd_line/commandLine */
+
+/*! ./src/configuration/configuration */
+
+/*! ./src/configuration/notation */
+
+/*! ./src/configuration/validators/inputMethodSwitcherValidator */
+
+/*! ./src/configuration/validators/remappingValidator */
+
+/*! ./src/editorIdentity */
+
+/*! ./src/globals */
+
+/*! ./src/history/historyTracker */
+
+/*! ./src/jumps/jump */
+
+/*! ./src/mode/mode */
+
+/*! ./src/mode/modeHandlerMap */
+
+/*! ./src/register/register */
+
+/*! ./src/state/compositionState */
+
+/*! ./src/state/globalState */
+
+/*! ./src/statusBar */
+
+/*! ./src/taskQueue */
+
+/*! ./src/util/logger */
+
+/*! ./src/util/specialKeys */
+
+/*! ./src/util/vscodeContext */
+
+/*! ./state/globalState */
+
+/*! ./support/isBuffer */
+
+/*! ./support/types */
+
+/*! ./transformations */
+
+/*! ./transformer */
+
+/*! ./types */
+
+/*! ./util */
+
+/*! ./util/logger */
+
+/*! ./util/util */
+
+/*! ./vimscript/pattern */
+
+/*! ./word */
+
+/*! ./wrapping */
+
+/*! ./write */
+
+/*! available-typed-arrays */
+
+/*! call-bind/callBound */
+
+/*! diff-match-patch */
+
+/*! es-abstract/helpers/getOwnPropertyDescriptor */
+
+/*! events */
+
+/*! foreach */
+
+/*! function-bind */
+
+/*! get-intrinsic */
+
+/*! has */
+
+/*! has-symbols */
+
+/*! has-symbols/shams */
+
+/*! has-tostringtag/shams */
+
+/*! inherits */
+
+/*! is-arguments */
+
+/*! is-generator-function */
+
+/*! is-typed-array */
+
+/*! lodash */
+
+/*! os */
+
+/*! parsimmon */
+
+/*! path */
+
+/*! platform/constants */
+
+/*! platform/fs */
+
+/*! platform/history */
+
+/*! platform/loggerImpl */
+
+/*! process */
+
+/*! process/browser */
+
+/*! queue */
+
+/*! setimmediate */
+
+/*! untildify */
+
+/*! util */
+
+/*! vscode */
+
+/*! which-typed-array */
+
+/*!**********************!*\
+  !*** ./package.json ***!
+  \**********************/
+
+/*!**********************!*\
+  !*** ./src/error.ts ***!
+  \**********************/
+
+/*!************************!*\
+  !*** ./src/globals.ts ***!
+  \************************/
+
+/*!************************!*\
+  !*** ./src/util/os.ts ***!
+  \************************/
+
+/*!*************************!*\
+  !*** ./extensionWeb.ts ***!
+  \*************************/
+
+/*!*************************!*\
+  !*** external "vscode" ***!
+  \*************************/
+
+/*!**************************!*\
+  !*** ./extensionBase.ts ***!
+  \**************************/
+
+/*!**************************!*\
+  !*** ./src/mode/mode.ts ***!
+  \**************************/
+
+/*!**************************!*\
+  !*** ./src/statusBar.ts ***!
+  \**************************/
+
+/*!**************************!*\
+  !*** ./src/taskQueue.ts ***!
+  \**************************/
+
+/*!**************************!*\
+  !*** ./src/util/path.ts ***!
+  \**************************/
+
+/*!**************************!*\
+  !*** ./src/util/util.ts ***!
+  \**************************/
+
+/*!***************************!*\
+  !*** ./src/jumps/jump.ts ***!
+  \***************************/
+
+/*!***************************!*\
+  !*** ./src/textEditor.ts ***!
+  \***************************/
+
+/*!****************************!*\
+  !*** ./src/util/logger.ts ***!
+  \****************************/
+
+/*!*****************************!*\
+  !*** ./src/actions/base.ts ***!
+  \*****************************/
+
+/*!*******************************!*\
+  !*** ./src/actions/motion.ts ***!
+  \*******************************/
+
+/*!*******************************!*\
+  !*** ./src/editorIdentity.ts ***!
+  \*******************************/
+
+/*!*******************************!*\
+  !*** ./src/state/vimState.ts ***!
+  \*******************************/
+
+/*!*******************************!*\
+  !*** ./src/util/clipboard.ts ***!
+  \*******************************/
+
+/*!********************************!*\
+  !*** ./src/textobject/util.ts ***!
+  \********************************/
+
+/*!********************************!*\
+  !*** ./src/textobject/word.ts ***!
+  \********************************/
+
+/*!*********************************!*\
+  !*** ./src/actions/operator.ts ***!
+  \*********************************/
+
+/*!*********************************!*\
+  !*** ./src/actions/wrapping.ts ***!
+  \*********************************/
+
+/*!*********************************!*\
+  !*** ./src/mode/modeHandler.ts ***!
+  \*********************************/
+
+/*!*********************************!*\
+  !*** ./src/state/remapState.ts ***!
+  \*********************************/
+
+/*!*********************************!*\
+  !*** ./src/util/specialKeys.ts ***!
+  \*********************************/
+
+/*!**********************************!*\
+  !*** ./src/jumps/jumpTracker.ts ***!
+  \**********************************/
+
+/*!**********************************!*\
+  !*** ./src/register/register.ts ***!
+  \**********************************/
+
+/*!**********************************!*\
+  !*** ./src/state/globalState.ts ***!
+  \**********************************/
+
+/*!**********************************!*\
+  !*** ./src/state/searchState.ts ***!
+  \**********************************/
+
+/*!**********************************!*\
+  !*** ./src/vimscript/pattern.ts ***!
+  \**********************************/
+
+/*!***********************************!*\
+  !*** ./node_modules/util/util.js ***!
+  \***********************************/
+
+/*!***********************************!*\
+  !*** ./src/actions/baseMotion.ts ***!
+  \***********************************/
+
+/*!***********************************!*\
+  !*** ./src/state/replaceState.ts ***!
+  \***********************************/
+
+/*!***********************************!*\
+  !*** ./src/util/vscodeContext.ts ***!
+  \***********************************/
+
+/*!************************************!*\
+  !*** ./src/history/historyFile.ts ***!
+  \************************************/
+
+/*!************************************!*\
+  !*** ./src/mode/modeHandlerMap.ts ***!
+  \************************************/
+
+/*!************************************!*\
+  !*** ./src/platform/browser/fs.ts ***!
+  \************************************/
+
+/*!************************************!*\
+  !*** ./src/state/recordedState.ts ***!
+  \************************************/
+
+/*!************************************!*\
+  !*** ./src/textobject/sentence.ts ***!
+  \************************************/
+
+/*!************************************!*\
+  !*** ./src/vimscript/exCommand.ts ***!
+  \************************************/
+
+/*!************************************!*\
+  !*** ./src/vimscript/lineRange.ts ***!
+  \************************************/
+
+/*!*************************************!*\
+  !*** ./node_modules/queue/index.js ***!
+  \*************************************/
+
+/*!*************************************!*\
+  !*** ./src/actions/commands/put.ts ***!
+  \*************************************/
+
+/*!*************************************!*\
+  !*** ./src/actions/include-main.ts ***!
+  \*************************************/
+
+/*!*************************************!*\
+  !*** ./src/cmd_line/commandLine.ts ***!
+  \*************************************/
+
+/*!*************************************!*\
+  !*** ./src/cmd_line/commands/sh.ts ***!
+  \*************************************/
+
+/*!*************************************!*\
+  !*** ./src/common/motion/cursor.ts ***!
+  \*************************************/
+
+/*!*************************************!*\
+  !*** ./src/textobject/paragraph.ts ***!
+  \*************************************/
+
+/*!*************************************!*\
+  !*** ./src/util/externalCommand.ts ***!
+  \*************************************/
+
+/*!**************************************!*\
+  !*** ./src/actions/plugins/sneak.ts ***!
+  \**************************************/
+
+/*!**************************************!*\
+  !*** ./src/cmd_line/commands/put.ts ***!
+  \**************************************/
+
+/*!**************************************!*\
+  !*** ./src/cmd_line/commands/tab.ts ***!
+  \**************************************/
+
+/*!**************************************!*\
+  !*** ./src/state/substituteState.ts ***!
+  \**************************************/
+
+/*!**************************************!*\
+  !*** ./src/textobject/textobject.ts ***!
+  \**************************************/
+
+/*!**************************************!*\
+  !*** ./src/vimscript/parserUtils.ts ***!
+  \**************************************/
+
+/*!***************************************!*\
+  !*** ./node_modules/events/events.js ***!
+  \***************************************/
+
+/*!***************************************!*\
+  !*** ./node_modules/foreach/index.js ***!
+  \***************************************/
+
+/*!***************************************!*\
+  !*** ./node_modules/has/src/index.js ***!
+  \***************************************/
+
+/*!***************************************!*\
+  !*** ./node_modules/lodash/lodash.js ***!
+  \***************************************/
+
+/*!***************************************!*\
+  !*** ./src/cmd_line/commands/bang.ts ***!
+  \***************************************/
+
+/*!***************************************!*\
+  !*** ./src/cmd_line/commands/copy.ts ***!
+  \***************************************/
+
+/*!***************************************!*\
+  !*** ./src/cmd_line/commands/file.ts ***!
+  \***************************************/
+
+/*!***************************************!*\
+  !*** ./src/cmd_line/commands/goto.ts ***!
+  \***************************************/
+
+/*!***************************************!*\
+  !*** ./src/cmd_line/commands/nohl.ts ***!
+  \***************************************/
+
+/*!***************************************!*\
+  !*** ./src/cmd_line/commands/only.ts ***!
+  \***************************************/
+
+/*!***************************************!*\
+  !*** ./src/cmd_line/commands/quit.ts ***!
+  \***************************************/
+
+/*!***************************************!*\
+  !*** ./src/cmd_line/commands/read.ts ***!
+  \***************************************/
+
+/*!***************************************!*\
+  !*** ./src/cmd_line/commands/sort.ts ***!
+  \***************************************/
+
+/*!***************************************!*\
+  !*** ./src/cmd_line/commands/undo.ts ***!
+  \***************************************/
+
+/*!***************************************!*\
+  !*** ./src/cmd_line/commands/wall.ts ***!
+  \***************************************/
+
+/*!***************************************!*\
+  !*** ./src/cmd_line/commands/yank.ts ***!
+  \***************************************/
+
+/*!***************************************!*\
+  !*** ./src/common/motion/position.ts ***!
+  \***************************************/
+
+/*!***************************************!*\
+  !*** ./src/configuration/notation.ts ***!
+  \***************************************/
+
+/*!***************************************!*\
+  !*** ./src/configuration/remapper.ts ***!
+  \***************************************/
+
+/*!***************************************!*\
+  !*** ./src/history/historyTracker.ts ***!
+  \***************************************/
+
+/*!***************************************!*\
+  !*** ./src/state/compositionState.ts ***!
+  \***************************************/
+
+/*!****************************************!*\
+  !*** ./src/actions/commands/insert.ts ***!
+  \****************************************/
+
+/*!****************************************!*\
+  !*** ./src/actions/commands/search.ts ***!
+  \****************************************/
+
+/*!****************************************!*\
+  !*** ./src/cmd_line/commands/ascii.ts ***!
+  \****************************************/
+
+/*!****************************************!*\
+  !*** ./src/cmd_line/commands/close.ts ***!
+  \****************************************/
+
+/*!****************************************!*\
+  !*** ./src/cmd_line/commands/jumps.ts ***!
+  \****************************************/
+
+/*!****************************************!*\
+  !*** ./src/cmd_line/commands/marks.ts ***!
+  \****************************************/
+
+/*!****************************************!*\
+  !*** ./src/cmd_line/commands/print.ts ***!
+  \****************************************/
+
+/*!****************************************!*\
+  !*** ./src/cmd_line/commands/smile.ts ***!
+  \****************************************/
+
+/*!****************************************!*\
+  !*** ./src/cmd_line/commands/write.ts ***!
+  \****************************************/
+
+/*!****************************************!*\
+  !*** ./src/common/matching/matcher.ts ***!
+  \****************************************/
+
+/*!****************************************!*\
+  !*** ./src/transformations/execute.ts ***!
+  \****************************************/
+
+/*!****************************************!*\
+  !*** ./src/util/statusBarTextUtils.ts ***!
+  \****************************************/
+
+/*!*****************************************!*\
+  !*** ./node_modules/call-bind/index.js ***!
+  \*****************************************/
+
+/*!*****************************************!*\
+  !*** ./node_modules/process/browser.js ***!
+  \*****************************************/
+
+/*!*****************************************!*\
+  !*** ./node_modules/untildify/index.js ***!
+  \*****************************************/
+
+/*!*****************************************!*\
+  !*** ./src/actions/commands/actions.ts ***!
+  \*****************************************/
+
+/*!*****************************************!*\
+  !*** ./src/actions/commands/replace.ts ***!
+  \*****************************************/
+
+/*!*****************************************!*\
+  !*** ./src/cmd_line/commands/vscode.ts ***!
+  \*****************************************/
+
+/*!*****************************************!*\
+  !*** ./src/configuration/decoration.ts ***!
+  \*****************************************/
+
+/*!*****************************************!*\
+  !*** ./src/platform/browser/history.ts ***!
+  \*****************************************/
+
+/*!******************************************!*\
+  !*** ./src/actions/commands/digraphs.ts ***!
+  \******************************************/
+
+/*!******************************************!*\
+  !*** ./src/cmd_line/commands/digraph.ts ***!
+  \******************************************/
+
+/*!******************************************!*\
+  !*** ./src/cmd_line/commands/history.ts ***!
+  \******************************************/
+
+/*!******************************************!*\
+  !*** ./src/vimscript/exCommandParser.ts ***!
+  \******************************************/
+
+/*!*******************************************!*\
+  !*** ./node_modules/has-symbols/index.js ***!
+  \*******************************************/
+
+/*!*******************************************!*\
+  !*** ./node_modules/has-symbols/shams.js ***!
+  \*******************************************/
+
+/*!*******************************************!*\
+  !*** ./src/cmd_line/commands/fileInfo.ts ***!
+  \*******************************************/
+
+/*!*******************************************!*\
+  !*** ./src/cmd_line/commands/gotoLine.ts ***!
+  \*******************************************/
+
+/*!*******************************************!*\
+  !*** ./src/cmd_line/commands/register.ts ***!
+  \*******************************************/
+
+/*!*******************************************!*\
+  !*** ./src/cmd_line/commands/terminal.ts ***!
+  \*******************************************/
+
+/*!*******************************************!*\
+  !*** ./src/common/matching/tagMatcher.ts ***!
+  \*******************************************/
+
+/*!*******************************************!*\
+  !*** ./src/platform/browser/constants.ts ***!
+  \*******************************************/
+
+/*!********************************************!*\
+  !*** ./node_modules/is-arguments/index.js ***!
+  \********************************************/
+
+/*!********************************************!*\
+  !*** ./node_modules/util/support/types.js ***!
+  \********************************************/
+
+/*!********************************************!*\
+  !*** ./src/cmd_line/commands/writequit.ts ***!
+  \********************************************/
+
+/*!********************************************!*\
+  !*** ./src/common/number/numericString.ts ***!
+  \********************************************/
+
+/*!********************************************!*\
+  !*** ./src/configuration/configuration.ts ***!
+  \********************************************/
+
+/*!********************************************!*\
+  !*** ./src/platform/browser/loggerImpl.ts ***!
+  \********************************************/
+
+/*!********************************************!*\
+  !*** ./src/transformations/transformer.ts ***!
+  \********************************************/
+
+/*!*********************************************!*\
+  !*** ./node_modules/call-bind/callBound.js ***!
+  \*********************************************/
+
+/*!*********************************************!*\
+  !*** ./node_modules/function-bind/index.js ***!
+  \*********************************************/
+
+/*!*********************************************!*\
+  !*** ./node_modules/get-intrinsic/index.js ***!
+  \*********************************************/
+
+/*!*********************************************!*\
+  !*** ./src/actions/commands/commandLine.ts ***!
+  \*********************************************/
+
+/*!*********************************************!*\
+  !*** ./src/cmd_line/commands/setoptions.ts ***!
+  \*********************************************/
+
+/*!*********************************************!*\
+  !*** ./src/cmd_line/commands/substitute.ts ***!
+  \*********************************************/
+
+/*!*********************************************!*\
+  !*** ./src/common/matching/quoteMatcher.ts ***!
+  \*********************************************/
+
+/*!**********************************************!*\
+  !*** ./node_modules/is-typed-array/index.js ***!
+  \**********************************************/
+
+/*!**********************************************!*\
+  !*** ./src/cmd_line/commands/deleteRange.ts ***!
+  \**********************************************/
+
+/*!***********************************************!*\
+  !*** ./node_modules/has-tostringtag/shams.js ***!
+  \***********************************************/
+
+/*!***********************************************!*\
+  !*** ./node_modules/os-browserify/browser.js ***!
+  \***********************************************/
+
+/*!***********************************************!*\
+  !*** ./node_modules/path-browserify/index.js ***!
+  \***********************************************/
+
+/*!***********************************************!*\
+  !*** ./src/cmd_line/commands/bufferDelete.ts ***!
+  \***********************************************/
+
+/*!***********************************************!*\
+  !*** ./src/cmd_line/commands/writequitall.ts ***!
+  \***********************************************/
+
+/*!************************************************!*\
+  !*** ./node_modules/diff-match-patch/index.js ***!
+  \************************************************/
+
+/*!************************************************!*\
+  !*** ./src/actions/languages/python/motion.ts ***!
+  \************************************************/
+
+/*!************************************************!*\
+  !*** ./src/transformations/transformations.ts ***!
+  \************************************************/
+
+/*!*************************************************!*\
+  !*** ./node_modules/which-typed-array/index.js ***!
+  \*************************************************/
+
+/*!*************************************************!*\
+  !*** ./src/actions/plugins/easymotion/types.ts ***!
+  \*************************************************/
+
+/*!**************************************************!*\
+  !*** ./src/cmd_line/commands/leftRightCenter.ts ***!
+  \**************************************************/
+
+/*!**************************************************!*\
+  !*** ./src/completion/lineCompletionProvider.ts ***!
+  \**************************************************/
+
+/*!***************************************************!*\
+  !*** ./node_modules/inherits/inherits_browser.js ***!
+  \***************************************************/
+
+/*!***************************************************!*\
+  !*** ./node_modules/setimmediate/setImmediate.js ***!
+  \***************************************************/
+
+/*!*****************************************************!*\
+  !*** ./node_modules/is-generator-function/index.js ***!
+  \*****************************************************/
+
+/*!*****************************************************!*\
+  !*** ./src/configuration/configurationValidator.ts ***!
+  \*****************************************************/
+
+/*!******************************************************!*\
+  !*** ./node_modules/available-typed-arrays/index.js ***!
+  \******************************************************/
+
+/*!******************************************************!*\
+  !*** ./node_modules/function-bind/implementation.js ***!
+  \******************************************************/
+
+/*!******************************************************!*\
+  !*** ./node_modules/util/support/isBufferBrowser.js ***!
+  \******************************************************/
+
+/*!******************************************************!*\
+  !*** ./src/actions/plugins/easymotion/easymotion.ts ***!
+  \******************************************************/
+
+/*!******************************************************!*\
+  !*** ./src/actions/plugins/pluginDefaultMappings.ts ***!
+  \******************************************************/
+
+/*!******************************************************!*\
+  !*** ./src/configuration/iconfigurationValidator.ts ***!
+  \******************************************************/
+
+/*!**********************************************************!*\
+  !*** ./src/actions/plugins/easymotion/easymotion.cmd.ts ***!
+  \**********************************************************/
+
+/*!***********************************************************!*\
+  !*** ./node_modules/parsimmon/build/parsimmon.umd.min.js ***!
+  \***********************************************************/
+
+/*!***********************************************************!*\
+  !*** ./src/actions/plugins/easymotion/markerGenerator.ts ***!
+  \***********************************************************/
+
+/*!************************************************************!*\
+  !*** ./src/configuration/validators/remappingValidator.ts ***!
+  \************************************************************/
+
+/*!**********************************************************************!*\
+  !*** ./node_modules/es-abstract/helpers/getOwnPropertyDescriptor.js ***!
+  \**********************************************************************/
+
+/*!**********************************************************************!*\
+  !*** ./src/configuration/validators/inputMethodSwitcherValidator.ts ***!
+  \**********************************************************************/
+
+/*!************************************************************************!*\
+  !*** ./node_modules/has-tostringtag/node_modules/has-symbols/shams.js ***!
+  \************************************************************************/
+
+/**
+ * @license
+ * Lodash <https://lodash.com/>
+ * Copyright OpenJS Foundation and other contributors <https://openjsf.org/>
+ * Released under MIT license <https://lodash.com/license>
+ * Based on Underscore.js 1.8.3 <http://underscorejs.org/LICENSE>
+ * Copyright Jeremy Ashkenas, DocumentCloud and Investigative Reporters & Editors
+ */

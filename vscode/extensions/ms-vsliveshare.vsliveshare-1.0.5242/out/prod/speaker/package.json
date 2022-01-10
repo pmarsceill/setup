@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "speaker": "https://github.com/daytonellwanger/node-speaker#3c6683ed19507c5d028b7a0e716224b5ad433278"
+  }
+}

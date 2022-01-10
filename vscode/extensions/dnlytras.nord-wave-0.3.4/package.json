@@ -1,0 +1,38 @@
+{
+	"name": "nord-wave",
+	"displayName": "Nord Wave",
+	"description": "Darker version of the awesome Nord theme",
+	"version": "0.3.4",
+	"publisher": "dnlytras",
+	"author": "Dimitrios Lytras <dnlytras@gmail.com>",
+	"repository": "https://github.com/DimitrisNL/nord-wave",
+	"engines": {
+		"vscode": "^1.14.0"
+	},
+	"categories": [
+		"Themes"
+	],
+	"icon": "assets/icon2.png",
+	"keywords": [
+		"arctic",
+		"dark",
+		"bluish",
+		"penato"
+	],
+	"contributes": {
+		"themes": [
+			{
+				"label": "Nord Wave",
+				"uiTheme": "vs-dark",
+				"path": "./themes/Nord Wave-color-theme.json"
+			}
+		]
+	},
+	"__metadata": {
+		"id": "65fca382-b0d0-438c-894a-ea55e4fda477",
+		"publisherId": "182d4013-d949-4d75-949b-fdeaa03bd771",
+		"publisherDisplayName": "Dimitrios Lytras",
+		"isPreReleaseVersion": false,
+		"installedTimestamp": 1641831935917
+	}
+}

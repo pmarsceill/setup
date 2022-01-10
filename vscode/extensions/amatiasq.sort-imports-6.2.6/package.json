@@ -1,0 +1,161 @@
+{
+	"name": "sort-imports",
+	"displayName": "sort-imports",
+	"description": "Sort ES6 imports automatically.",
+	"version": "6.2.6",
+	"galleryBanner": {
+		"color": "#2980b9",
+		"theme": "dark"
+	},
+	"bugs": {
+		"url": "https://github.com/amatiasq/vsc-sort-imports/issues"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/amatiasq/vsc-sort-imports.git"
+	},
+	"icon": "assets/logo.png",
+	"publisher": "amatiasq",
+	"engines": {
+		"vscode": "^1.55.0"
+	},
+	"homepage": "https://github.com/amatiasq/vsc-sort-imports/blob/master/README.md",
+	"license": "ISC",
+	"categories": [
+		"Programming Languages",
+		"Other"
+	],
+	"keywords": [
+		"ES6",
+		"ES2015",
+		"ES2019",
+		"Sort",
+		"Sorting",
+		"Import"
+	],
+	"activationEvents": [
+		"onCommand:extension.sort-imports",
+		"onLanguage:javascript",
+		"onLanguage:javascriptreact",
+		"onLanguage:typescript",
+		"onLanguage:typescriptreact"
+	],
+	"main": "./out/extension",
+	"contributes": {
+		"commands": [
+			{
+				"command": "sort-imports.sort",
+				"title": "Sort imports"
+			},
+			{
+				"command": "sort-imports.save-without-sorting",
+				"title": "Save file without sorting imports"
+			}
+		],
+		"configuration": {
+			"title": "Sort Imports configuration",
+			"properties": {
+				"sort-imports.on-save": {
+					"type": "boolean",
+					"default": true,
+					"description": "Automatically sort imports on save."
+				},
+				"sort-imports.ignore-type-defs": {
+					"type": "boolean",
+					"default": true,
+					"description": "Skip trying to sort .d.ts files."
+				},
+				"sort-imports.cache-package-json-config-checks": {
+					"type": "boolean",
+					"default": true,
+					"description": "If true, will cache calls to `import-sort-config`, thereby improving performance."
+				},
+				"sort-imports.default-sort-style": {
+					"type": "string",
+					"default": "eslint",
+					"description": "Default sorting style. Options are eslint, module, module-scoped, module-compact, renke."
+				},
+				"sort-imports.languages": {
+					"type": "array",
+					"default": [
+						"javascript",
+						"typescript"
+					],
+					"description": "Languages to sort on save."
+				}
+			}
+		}
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"vsce": "vsce",
+		"vsce:package": "vsce package --yarn",
+		"vsce:publish": "vsce publish --yarn",
+		"clean": "rimraf ./out",
+		"compile": "npm run clean && tsc -p ./",
+		"watch": "npm run clean && tsc -watch -p ./",
+		"pretest": "npm run compile",
+		"test": "node ./out/test/runTest.js",
+		"install-package": "npm run vsce:package && code --install-extension ./sort-imports-$npm_package_version.vsix",
+		"import-sort": "npx import-sort-cli --write 'src/**/*.ts{,x}'",
+		"format": "prettier 'src/**/*.ts' --write",
+		"lint": "eslint --ext .js,.ts src",
+		"lint:fix": "eslint --fix --ext .js,.ts src"
+	},
+	"prettier": {
+		"singleQuote": true
+	},
+	"lint-staged": {
+		"*.ts": [
+			"eslint --fix"
+		]
+	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "lint-staged"
+		}
+	},
+	"devDependencies": {
+		"@types/glob": "^7.1.3",
+		"@types/mocha": "^8.2.2",
+		"@types/node": "^14.14.41",
+		"@types/vscode": "^1.55.0",
+		"@typescript-eslint/eslint-plugin": "^4.22.0",
+		"@typescript-eslint/parser": "^4.22.0",
+		"eslint": "^7.24.0",
+		"eslint-config-prettier": "^7.2.0",
+		"eslint-plugin-prettier": "^3.4.0",
+		"glob": "^7.1.6",
+		"husky": "^4.3.8",
+		"lint-staged": "^10.5.4",
+		"mocha": "^8.3.2",
+		"prettier": "^2.2.1",
+		"rimraf": "^3.0.2",
+		"source-map-support": "^0.5.19",
+		"typescript": "^4.2.4",
+		"vsce": "^1.87.1",
+		"vscode-test": "^1.5.2"
+	},
+	"dependencies": {
+		"@babel/code-frame": "^7.12.13",
+		"@eslint/eslintrc": "^0.3.0",
+		"cosmiconfig": "~5.0.7",
+		"glob-parent": "^5.1.2",
+		"import-sort": "^6.0.0",
+		"import-sort-config": "^6.0.0",
+		"import-sort-parser-babylon": "^6.0.0",
+		"import-sort-parser-typescript": "^6.0.0",
+		"import-sort-style-eslint": "^6.0.0",
+		"import-sort-style-module": "^6.0.0",
+		"import-sort-style-module-compact": "^2.0.0",
+		"import-sort-style-module-scoped": "^1.0.3",
+		"import-sort-style-renke": "^6.0.0"
+	},
+	"__metadata": {
+		"id": "6c0f990e-512c-4b25-a01e-0d6578f0b42a",
+		"publisherId": "50b429f6-9b34-45aa-9ccf-03114e58e024",
+		"publisherDisplayName": "VSC Sort Import",
+		"isPreReleaseVersion": false,
+		"installedTimestamp": 1641831943442
+	}
+}

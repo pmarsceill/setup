@@ -1,0 +1,12 @@
+import { Configuration } from './Configuration';
+import { Server } from './Server';
+import { SocketProvider } from './SocketProvider';
+import * as commands from './commands';
+export { Configuration, Server, SocketProvider, commands };
+export declare function nearestWorkspace(file: string, parent?: string): string;
+export declare function verifyGemIsInstalled(configuration: Configuration): Promise<Boolean>;
+export declare function verifyGemIsCurrent(configuration: Configuration): Promise<Boolean>;
+export declare function writeConfigFile(configuration: Configuration): Promise<Boolean>;
+export declare function updateGemDocumentation(configuration: Configuration): void;
+export declare function installGem(configuration: Configuration): Promise<Boolean>;
+export declare function updateGem(configuration: Configuration): Promise<Boolean>;

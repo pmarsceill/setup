@@ -1,0 +1,137 @@
+{
+	"name": "vscode-insertdatestring",
+	"displayName": "Insert Date String",
+	"description": "Insert the current date and time according to configured format.",
+	"version": "2.3.0",
+	"publisher": "jsynowiec",
+	"homepage": "https://github.com/jsynowiec/vscode-insertdatestring#readme",
+	"bugs": {
+		"url": "https://github.com/jsynowiec/vscode-insertdatestring/issues"
+	},
+	"license": "MIT",
+	"author": {
+		"name": "Jakub Synowiec",
+		"email": "github@jakubsynowiec.info",
+		"url": "https://jakubsynowiec.info"
+	},
+	"main": "./out/src/extension",
+	"private": true,
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/jsynowiec/vscode-insertdatestring"
+	},
+	"scripts": {
+		"vscode:prepublish": "tsc -p ./",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"lint": "eslint -c .eslintrc.js --ext .ts .",
+		"prettier": "prettier --write '**/*.{ts,json,md,yml,js}'"
+	},
+	"dependencies": {
+		"date-format-lite": "^17.7.0"
+	},
+	"devDependencies": {
+		"@types/node": "^12",
+		"@types/vscode": "1.41",
+		"@typescript-eslint/eslint-plugin": "^3.6.1",
+		"@typescript-eslint/eslint-plugin-tslint": "^3.6.1",
+		"@typescript-eslint/parser": "^3.6.1",
+		"eslint": "^7.5.0",
+		"eslint-config-prettier": "^6.11.0",
+		"eslint-plugin-prettier": "^3.1.4",
+		"prettier": "^2.0.5",
+		"tslint": "^6.1.2",
+		"typescript": "^3.9.6"
+	},
+	"engines": {
+		"vscode": "^1.41.0"
+	},
+	"activationEvents": [
+		"onCommand:insertDateString.insertDateTime",
+		"onCommand:insertDateString.insertDate",
+		"onCommand:insertDateString.insertTime",
+		"onCommand:insertDateString.insertTimestamp",
+		"onCommand:insertDateString.insertOwnFormatDateTime"
+	],
+	"categories": [
+		"Other",
+		"Snippets"
+	],
+	"keywords": [
+		"iso 8601",
+		"datetime",
+		"current date",
+		"timestamp",
+		"template"
+	],
+	"contributes": {
+		"commands": [
+			{
+				"command": "insertDateString.insertDateTime",
+				"title": "Insert DateTime"
+			},
+			{
+				"command": "insertDateString.insertDate",
+				"title": "Insert Date"
+			},
+			{
+				"command": "insertDateString.insertTime",
+				"title": "Insert Time"
+			},
+			{
+				"command": "insertDateString.insertTimestamp",
+				"title": "Insert Timestamp"
+			},
+			{
+				"command": "insertDateString.insertOwnFormatDateTime",
+				"title": "Insert Formatted DateTime"
+			}
+		],
+		"configuration": {
+			"title": "Insert Date String Configuration",
+			"properties": {
+				"insertDateString.format": {
+					"type": "string",
+					"default": "YYYY-MM-DD hh:mm:ss",
+					"description": "Date time format to be used."
+				},
+				"insertDateString.formatDate": {
+					"type": "string",
+					"default": "YYYY-MM-DD",
+					"description": "Date format to be used."
+				},
+				"insertDateString.formatTime": {
+					"type": "string",
+					"default": "hh:mm:ss",
+					"description": "Time format to be used."
+				}
+			}
+		},
+		"keybindings": [
+			{
+				"command": "insertDateString.insertDateTime",
+				"key": "shift+ctrl+i",
+				"mac": "shift+cmd+i",
+				"when": "editorTextFocus"
+			},
+			{
+				"command": "insertDateString.insertOwnFormatDateTime",
+				"key": "shift+ctrl+alt+i",
+				"mac": "shift+cmd+alt+i",
+				"when": "editorTextFocus"
+			}
+		]
+	},
+	"icon": "images/icon.png",
+	"galleryBanner": {
+		"color": "#005696",
+		"theme": "dark"
+	},
+	"__metadata": {
+		"id": "92d01ae4-5a2e-4299-990c-7905798fb719",
+		"publisherId": "12b69176-2a02-46e1-8a16-56b008b4c22b",
+		"publisherDisplayName": "Jakub Synowiec",
+		"isPreReleaseVersion": false,
+		"installedTimestamp": 1641831935050
+	}
+}

@@ -1,0 +1,338 @@
+{
+	"name": "copilot",
+	"displayName": "GitHub Copilot",
+	"description": "Your AI pair programmer",
+	"version": "1.7.4421",
+	"build": "4421",
+	"buildType": "prod",
+	"publisher": "GitHub",
+	"preview": true,
+	"repository": "https://github.com/github/copilot-docs",
+	"qna": "https://github.com/github/feedback/discussions/categories/copilot-feedback",
+	"icon": "assets/Copilot-APP-ICON-512.png",
+	"engines": {
+		"vscode": "^1.57.0",
+		"npm": ">=7.0.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onStartupFinished"
+	],
+	"main": "./dist/extension",
+	"enableProposedApi": true,
+	"enabledApiProposals": [
+		"inlineCompletions",
+		"textDocumentNotebook"
+	],
+	"contributes": {
+		"commands": [
+			{
+				"command": "github.copilot.generate",
+				"title": "Open GitHub Copilot"
+			},
+			{
+				"command": "github.copilot.toggleCopilot",
+				"title": "GitHub Copilot: Toggle on/off"
+			},
+			{
+				"command": "github.copilot.sendFeedback",
+				"title": "GitHub Copilot: Send Feedback"
+			}
+		],
+		"keybindings": [
+			{
+				"command": "github.copilot.generate",
+				"key": "ctrl+enter",
+				"mac": "ctrl+enter",
+				"when": "editorTextFocus && github.copilot.activated"
+			},
+			{
+				"command": "editor.action.inlineSuggest.trigger",
+				"key": "alt+\\",
+				"when": "editorTextFocus && !editorHasSelection && config.github.copilot.inlineSuggest.enable && !inlineSuggestionsVisible"
+			}
+		],
+		"menus": {
+			"editor/inlineCompletions/actions": [
+				{
+					"command": "github.copilot.generate",
+					"when": "github.copilot.activated"
+				}
+			],
+			"commandPalette": [
+				{
+					"command": "github.copilot.generate",
+					"when": "github.copilot.activated"
+				},
+				{
+					"command": "github.copilot.toggleCopilot",
+					"when": "github.copilot.activated"
+				},
+				{
+					"command": "github.copilot.sendFeedback",
+					"when": "github.copilot.activated"
+				}
+			]
+		},
+		"viewsContainers": {
+			"activitybar": [
+				{
+					"id": "copilot-sidebar-webview",
+					"title": "GitHub Copilot",
+					"icon": "assets/head.svg"
+				}
+			]
+		},
+		"views": {
+			"copilot-sidebar-webview": [
+				{
+					"type": "webview",
+					"id": "copilotSidebarWebview.view",
+					"name": "Labs",
+					"when": "github.copilot.nightly && github.copilot.activated"
+				}
+			]
+		},
+		"configuration": [
+			{
+				"title": "Copilot",
+				"properties": {
+					"github.copilot.advanced": {
+						"type": "object",
+						"title": "Advanced Settings",
+						"properties": {
+							"secret_key": {
+								"type": "string",
+								"default": "",
+								"description": "Secret API key"
+							},
+							"length": {
+								"type": "integer",
+								"default": 500,
+								"description": "Length of code to generate in tokens"
+							},
+							"temperature": {
+								"type": "string",
+								"default": "",
+								"description": "Override sampling temperature (range 0.0 - 1.0)"
+							},
+							"top_p": {
+								"type": "number",
+								"default": 1,
+								"description": "Top probability mass to consider"
+							},
+							"stops": {
+								"type": "object",
+								"default": {
+									"*": [
+										"\n\n\n"
+									],
+									"python": [
+										"\ndef ",
+										"\nclass ",
+										"\nif ",
+										"\n\n#"
+									]
+								},
+								"description": "Configure per-language stop sequences"
+							},
+							"indentationMode": {
+								"type": "object",
+								"default": {
+									"python": false,
+									"javascript": false,
+									"javascriptreact": false,
+									"jsx": false,
+									"typescript": false,
+									"typescriptreact": false,
+									"go": false,
+									"ruby": false,
+									"*": true
+								},
+								"markdownDescription": "Enable or disable indentation block termination for specified [languages](https://code.visualstudio.com/docs/languages/identifiers). Set to 'client', 'server' or false to disable."
+							},
+							"inlineSuggestCount": {
+								"type": "integer",
+								"default": 3,
+								"description": "Number of inline suggestions to fetch"
+							},
+							"listCount": {
+								"type": "integer",
+								"default": 10,
+								"description": "Number of solutions to list in Open GitHub Copilot"
+							},
+							"debug.showScores": {
+								"type": "boolean",
+								"default": false,
+								"description": "Show scores in sorted solutions"
+							},
+							"debug.enableRefactor": {
+								"type": "boolean",
+								"default": false,
+								"description": "Enable Refactor status bar item for Python (Requires reload)"
+							},
+							"debug.useProxy": {
+								"type": "boolean",
+								"default": true,
+								"description": "Use GitHub authentication proxy"
+							},
+							"debug.overrideEngineUrl": {
+								"type": "string",
+								"default": "",
+								"description": "Override engine full URL (if set, disables proxy)"
+							},
+							"debug.overrideProxyUrl": {
+								"type": "string",
+								"default": "",
+								"description": "Override GitHub authentication proxy full URL"
+							},
+							"debug.overrideLogLevels": {
+								"type": "object",
+								"default": {},
+								"description": "Override what the minimum logged level is per logger (or '*' for all loggers). Levels are 'DEBUG', 'INFO', 'WARN', 'ERROR'. Ex: `{\"default\": \"DEBUG\"}` to see all things logged to the 'default' logger."
+							},
+							"debug.filterLogCategories": {
+								"type": "array",
+								"default": [],
+								"description": "Show only log categories listed in this setting. If an array is empty, show all loggers"
+							},
+							"debug.limitPrompts": {
+								"type": "boolean",
+								"default": false,
+								"description": "Temporary debug option to do less work to construct prompts"
+							},
+							"debug.ignoreRepo": {
+								"type": "boolean",
+								"default": false,
+								"description": "Temporary debug option to ignore the repo"
+							}
+						}
+					},
+					"github.copilot.enable": {
+						"type": "object",
+						"default": {
+							"*": true,
+							"yaml": false,
+							"plaintext": false,
+							"markdown": false
+						},
+						"markdownDescription": "Enable or disable Copilot for specified [languages](https://code.visualstudio.com/docs/languages/identifiers)"
+					},
+					"github.copilot.inlineSuggest.enable": {
+						"type": "boolean",
+						"default": true,
+						"description": "Show inline suggestions"
+					}
+				}
+			}
+		],
+		"icons": [
+			{
+				"id": "copilot-logo",
+				"description": "GitHub Copilot icon",
+				"default": {
+					"fontId": "copilot-font",
+					"fontCharacter": "\\0041"
+				}
+			},
+			{
+				"id": "copilot-warning",
+				"description": "GitHub Copilot icon",
+				"default": {
+					"fontId": "copilot-font",
+					"fontCharacter": "\\0042"
+				}
+			},
+			{
+				"id": "copilot-notconnected",
+				"description": "GitHub Copilot icon",
+				"default": {
+					"fontId": "copilot-font",
+					"fontCharacter": "\\0043"
+				}
+			}
+		],
+		"iconFonts": [
+			{
+				"id": "copilot-font",
+				"src": [
+					{
+						"path": "assets/copilot.woff",
+						"format": "woff"
+					}
+				]
+			}
+		]
+	},
+	"scripts": {
+		"postinstall": "npx vscode-dts dev && mv vscode.proposed.*.ts extension/src",
+		"vscode:prepublish": "npm-run-all build:extension build:views",
+		"build": "npm-run-all build:*",
+		"build:agent": "cd agent && npm run build",
+		"build:agent-no-pkg": "cd agent && npm run build-no-pkg",
+		"build:extension": "webpack --mode production",
+		"build:views": "cd webviews && npm run build",
+		"compile": "npm-run-all compile:*",
+		"compile:agent": "cd agent && npm run compile",
+		"compile:extension": "webpack --mode development",
+		"compile:views": "cd webviews && npm run compile",
+		"watch": "npm-run-all -p watch:*",
+		"watch:agent": "cd agent && npm run watch",
+		"watch:extension": "webpack --mode development --watch",
+		"watch:views": "cd webviews && npm run watch",
+		"lint": "eslint lib extension agent webviews --ext ts",
+		"test": "npm-run-all test:*",
+		"test:agent": "cd agent && npm run test",
+		"test:extension": "ts-node ./test/runTest.ts",
+		"build_test": "tsc test/run.ts",
+		"get_token": "ts-node script/getToken.ts"
+	},
+	"devDependencies": {
+		"@types/crypto-js": "^4.0.1",
+		"@types/mocha": "^5.2.6",
+		"@types/node": "^13.11.0",
+		"@types/uuid": "^8.3.1",
+		"@types/vscode": "^1.57.0",
+		"@typescript-eslint/eslint-plugin": "^4.27.0",
+		"@typescript-eslint/parser": "^4.27.0",
+		"axios": "^0.21.4",
+		"eslint": "^7.29.0",
+		"fantasticon": "^1.2.2",
+		"mocha": "^6.1.4",
+		"npm-run-all": "^4.1.5",
+		"open": "^8.2.1",
+		"ts-dedent": "^2.2.0",
+		"ts-loader": "^8.0.11",
+		"ts-node": "^9.0.0",
+		"typescript": "^4.4.3",
+		"vsce": "1.91.0",
+		"vscode-dts": "^0.3.2",
+		"vscode-test": "^1.3.0",
+		"webpack": "^5.54.0",
+		"webpack-cli": "^4.2.0"
+	},
+	"dependencies": {
+		"@github/copilot-promptlib": "file:prompt",
+		"ajv": "^8.6.3",
+		"ajv-errors": "^3.0.0",
+		"crypto-js": "^4.0.0",
+		"fetch-h2": "^3.0.0",
+		"get-port": "^5.1.1",
+		"highlight.js": "^11.3.1",
+		"ip-regex": "^4.3.0",
+		"source-map-support": "^0.5.19",
+		"uuid": "^8.3.2",
+		"vscode-extension-telemetry": "^0.1.6",
+		"vscode-tas-client": "^0.1.27",
+		"vscode-uri": "^3.0.2"
+	},
+	"__metadata": {
+		"id": "23c4aeee-f844-43cd-b53e-1113e483f1a6",
+		"publisherId": "7c1c19cd-78eb-4dfb-8999-99caf7679002",
+		"publisherDisplayName": "GitHub",
+		"isPreReleaseVersion": false,
+		"installedTimestamp": 1641831936499
+	}
+}

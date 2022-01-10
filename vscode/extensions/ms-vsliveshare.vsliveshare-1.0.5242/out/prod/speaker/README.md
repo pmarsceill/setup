@@ -1,0 +1,2 @@
+# Speaker
+This project is for playing audio directly to the speakers in a cross-platform fashion. `speaker.js` is intended to be created as a child process and PCM data should be piped to it through `stdin`. `node_modules` need to live alongside `speaker.js`. It is not webpack-able due to its dependencies. All-together it should take up 9mb as a dependency.

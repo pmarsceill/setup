@@ -7,6 +7,9 @@ brew install mas
 mas install 497799835
 sudo xcodebuild -license accept
 
+# Install iTerm2
+brew install --cask iterm2
+
 # Install gh command line
 brew install gh
 
@@ -22,20 +25,14 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 # Install nodenv
 brew install nodenv
 
-# Install NeoVim
-brew install neovim
-
-# Install non-system Python3
-brew install python
-
-# Install neovim python package
-pip3 install neovim
-
-# Install Plug
-git clone https://github.com/k-takata/minpac.git ~/.config/nvim/pack/minpac/opt/minpac
+# Install VSCode 
+brew install --cask visual-studio-code
 
 # Install 1Password
-mas install 1333542190
+brew install --cask 1password
 
-# Install Aware
-mas install 1082170746
+# Install Raycast
+brew install --cask raycast
+
+# Install Slack
+brew install --cask slack

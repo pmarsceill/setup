@@ -1,0 +1,297 @@
+{
+	"name": "solargraph",
+	"displayName": "Ruby Solargraph",
+	"description": "A Ruby language server featuring code completion, intellisense, and inline documentation",
+	"icon": "solargraph.png",
+	"version": "0.23.0",
+	"publisher": "castwide",
+	"author": {
+		"name": "Fred Snyder"
+	},
+	"files": [
+		"views"
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/castwide/vscode-solargraph"
+	},
+	"license": "MIT",
+	"categories": [
+		"Programming Languages",
+		"Linters",
+		"Formatters"
+	],
+	"keywords": [
+		"Ruby",
+		"autocomplete",
+		"intellisense",
+		"YARD",
+		"language server"
+	],
+	"engines": {
+		"vscode": "^1.54.0"
+	},
+	"extensionKind": [
+		"workspace"
+	],
+	"activationEvents": [
+		"onLanguage:ruby",
+		"onCommand:solargraph.search",
+		"onCommand:solargraph.restart",
+		"onCommand:solargraph.config",
+		"onCommand:solargraph.downloadCore",
+		"onCommand:solargraph.buildGemDocs",
+		"onCommand:solargraph.rebuildAllGemDocs"
+	],
+	"contributes": {
+		"configuration": {
+			"title": "Solargraph settings for Ruby",
+			"properties": {
+				"solargraph.transport": {
+					"type": "string",
+					"default": "socket",
+					"enum": [
+						"socket",
+						"stdio",
+						"external"
+					],
+					"description": "The type of transport to use."
+				},
+				"solargraph.externalServer": {
+					"type": "object",
+					"description": "The host and port to use for external transports. (Ignored for stdio and socket transports.)",
+					"properties": {
+						"host": {
+							"type": "string",
+							"default": "localhost"
+						},
+						"port": {
+							"type": "integer",
+							"default": 7658
+						}
+					},
+					"default": {
+						"host": "localhost",
+						"port": 7658
+					}
+				},
+				"solargraph.commandPath": {
+					"type": "string",
+					"default": "solargraph",
+					"description": "Path to the solargraph command.  Set this to an absolute path to select from multiple installed Ruby versions.",
+					"scope": "resource"
+				},
+				"solargraph.useBundler": {
+					"type": "boolean",
+					"description": "Use `bundle exec` to run solargraph. (If this is true, the solargraph.commandPath setting is ignored.)",
+					"default": false
+				},
+				"solargraph.bundlerPath": {
+					"type": "string",
+					"description": "Path to the bundle executable, defaults to 'bundle'. Needs to be an absolute path for the 'bundle' exec/shim",
+					"default": "bundle",
+					"scope": "resource"
+				},
+				"solargraph.checkGemVersion": {
+					"type": "boolean",
+					"description": "Automatically check if a new version of the Solargraph gem is available.",
+					"default": true,
+					"enum": [
+						true,
+						false
+					]
+				},
+				"solargraph.completion": {
+					"type": [
+						"boolean"
+					],
+					"description": "Enable completion",
+					"default": true,
+					"enum": [
+						true,
+						false
+					]
+				},
+				"solargraph.hover": {
+					"type": [
+						"boolean"
+					],
+					"description": "Enable hover",
+					"default": true,
+					"enum": [
+						true,
+						false
+					]
+				},
+				"solargraph.diagnostics": {
+					"type": [
+						"boolean"
+					],
+					"description": "Enable diagnostics",
+					"default": false,
+					"enum": [
+						true,
+						false
+					]
+				},
+				"solargraph.autoformat": {
+					"type": [
+						"boolean"
+					],
+					"description": "Enable automatic formatting while typing (WARNING: experimental)",
+					"default": false,
+					"enum": [
+						true,
+						false
+					]
+				},
+				"solargraph.formatting": {
+					"type": [
+						"boolean"
+					],
+					"description": "Enable document formatting",
+					"enum": [
+						true,
+						false
+					],
+					"default": false
+				},
+				"solargraph.symbols": {
+					"type": [
+						"boolean"
+					],
+					"description": "Enable symbols",
+					"enum": [
+						true,
+						false
+					],
+					"default": true
+				},
+				"solargraph.definitions": {
+					"type": [
+						"boolean"
+					],
+					"description": "Enable definitions (go to, etc.)",
+					"enum": [
+						true,
+						false
+					],
+					"default": true
+				},
+				"solargraph.rename": {
+					"type": [
+						"boolean"
+					],
+					"description": "Enable symbol renaming",
+					"enum": [
+						true,
+						false
+					],
+					"default": true
+				},
+				"solargraph.references": {
+					"type": [
+						"boolean"
+					],
+					"description": "Enable finding references",
+					"enum": [
+						true,
+						false
+					],
+					"default": true
+				},
+				"solargraph.folding": {
+					"type": "boolean",
+					"description": "Enable folding ranges",
+					"default": true
+				},
+				"solargraph.logLevel": {
+					"type": "string",
+					"description": "Level of debug info to log. `warn` is least and `debug` is most.",
+					"enum": [
+						"warn",
+						"info",
+						"debug"
+					],
+					"default": "warn"
+				}
+			}
+		},
+		"commands": [
+			{
+				"command": "solargraph.search",
+				"title": "Search Ruby Documentation",
+				"category": "Solargraph"
+			},
+			{
+				"command": "solargraph.restart",
+				"title": "Restart Solargraph",
+				"category": "Solargraph"
+			},
+			{
+				"command": "solargraph.config",
+				"title": "Create a Solargraph config file",
+				"category": "Solargraph"
+			},
+			{
+				"command": "solargraph.checkGemVersion",
+				"title": "Check Solargraph gem version",
+				"category": "Solargraph"
+			},
+			{
+				"command": "solargraph.downloadCore",
+				"title": "Download current Ruby documentation",
+				"category": "Solargraph"
+			},
+			{
+				"command": "solargraph.buildGemDocs",
+				"title": "Build new gem documentation",
+				"category": "Solargraph"
+			},
+			{
+				"command": "solargraph.rebuildAllGemDocs",
+				"title": "Rebuild all gem documentation",
+				"category": "Solargraph"
+			},
+			{
+				"command": "solargraph.environment",
+				"title": "Get environment info",
+				"category": "Solargraph"
+			}
+		],
+		"keybindings": [
+			{
+				"command": "solargraph.search",
+				"key": "ctrl+shift+r",
+				"mac": "cmd+shift+r"
+			}
+		]
+	},
+	"main": "./out/src/extension.js",
+	"scripts": {
+		"vscode:prepublish": "tsc -p ./",
+		"compile": "tsc -watch -p ./",
+		"test": "node ./node_modules/vscode/bin/test"
+	},
+	"devDependencies": {
+		"@types/mocha": "^2.2.32",
+		"@types/node": "^6.0.40",
+		"mocha": "^6.1.4",
+		"typescript": "^4.2.3"
+	},
+	"dependencies": {
+		"@types/vscode": "^1.54.0",
+		"html2plaintext": "^2.1.2",
+		"is-relative": "^1.0.0",
+		"solargraph-utils": "^1.1.0",
+		"vscode-languageclient": "^7.0.0",
+		"vscode-test": "^1.5.1"
+	},
+	"__metadata": {
+		"id": "349e83e2-207c-4309-a8d2-dfa43f7ee0c9",
+		"publisherId": "8244762e-597b-434d-b303-f780ff47b36c",
+		"publisherDisplayName": "Castwide",
+		"isPreReleaseVersion": false,
+		"installedTimestamp": 1641831942060
+	}
+}
