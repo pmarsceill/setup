@@ -5,7 +5,7 @@
 [user]
 	name = Patrick Marsceill
 	email = patrick@thismodernweb.com
-	signingkey = CACE3CF519B3E9DD
+	signingkey = 9BC0CD27950AE55A
 [core]
 	excludesfile = /Users/pmarsceill/.gitignore_global
 	editor = nvim

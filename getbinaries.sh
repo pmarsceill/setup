@@ -25,6 +25,9 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 # Install nodenv
 brew install nodenv
 
+# Install gpg
+brew install gnupg gnupg2
+
 # Install VSCode 
 brew install --cask visual-studio-code
 
