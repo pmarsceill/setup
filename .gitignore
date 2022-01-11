@@ -1,0 +1,8 @@
+gpg/.gnupg/*.kbx
+gpg/.gnupg/*.kbx~
+gpg/.gnupg/*.gpg
+gpg/.gnupg/openpgp-revocs.d/*
+gpg/.gnupg/private-keys-v1.d/*
+gpg/.gnupg/private-keys-v1.d/*
+ssh/.ssh/id_ed25519
+ssh/.ssh/id_ed25519.pub
