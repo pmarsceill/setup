@@ -87,7 +87,7 @@ alias tmux="TERM=screen-256color-bce tmux"
 alias python="python3"
 
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
-eval "$(nodenv init -)"
+# eval "$(nodenv init -)"
 
 export PATH=/Users/pmarsceill/.themekit:$PATH
 

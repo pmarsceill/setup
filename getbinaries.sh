@@ -39,3 +39,9 @@ brew install --cask raycast
 
 # Install Slack
 brew install --cask slack
+
+# Install Figma
+brew install --cask figma 
+
+# Install Spark Email
+mas install 1176895641
